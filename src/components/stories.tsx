@@ -3,9 +3,9 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ScrollVelocity from './ui/scroll-velocity';
 
-import localDuy from "../assets/images/IMG_9547.JPG";
+import localDuy from "../assets/images/IMG_9547.jpg";
 import localShayona from "../assets/images/DSCF9599.jpg";
-import localSelwyn from "../assets/images/IMG_9615.JPG";
+import localSelwyn from "../assets/images/IMG_9615.jpg";
 
 // Register GSAP plugin
 gsap.registerPlugin(ScrollTrigger);
