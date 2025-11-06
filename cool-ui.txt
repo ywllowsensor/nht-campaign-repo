@@ -1,0 +1,43 @@
+magic ui:
+- marquee
+    - ending where they write cards?
+    - maybe can get them to write messages
+- lens
+    - lets you zoom into image
+- video text from magic ui
+    - lets u overlay a video onto text
+
+aceternity ui:
+- canvas reveal
+    - hover over box to reveal image below
+    - stories section
+- svg mask
+    - hover over some text to reveal text below
+    - title page
+    - social integration/segregration
+    - hover changes integration to segregration
+- 3d card effect 
+    - for choosing decisions in the story
+- draggable card
+    - read and reveal stories for stories section
+
+reactbits:
+curved loop
+scroll float
+
+animated content
+
+target cursor
+crosshair
+ribbons
+
+scroll stack
+pill nav (nav bar)
+masonry, dome gallery(collage of photos)
+menu(side bar)
+infinite scroll (instead of marquee)
+
+silk
+dark veil
+color bends
+iridiscence
