@@ -1,19 +1,5 @@
 import { useState } from 'react';
 
-// ============================================
-// HOW TO ADD MORE SCENARIOS:
-// ============================================
-// 1. Add your 4 images to src/assets/scenarios/[number]/ folder:
-//    - scenario[number]-desc.jpg (description screen)
-//    - scenario[number]-choice.jpg (choice screen with 2 buttons)
-//    - scenario[number]-choice-[option1].jpg (result for choice 1)
-//    - scenario[number]-choice-[option2].jpg (result for choice 2)
-//
-// 2. Import them at the top
-// 3. Add a new object to scenariosConfig array below
-// 4. Adjust the XP effects for each choice
-// ============================================
-
 // Import scenario images
 import scenario1Desc from '../assets/scenarios/1/scenario1-desc.jpg';
 import scenario1Choice from '../assets/scenarios/1/scenario1-choice.jpg';
@@ -81,57 +67,56 @@ const scenariosConfig: ScenarioData[] = [
       ]
     }
   }
-  // Add more scenarios here following the same pattern:
-  // {
-  //   id: 2,
-  //   descImage: scenario2Desc,
-  //   choiceImage: scenario2Choice,
-  //   descriptionText: [
-  //     "Your neighbourhood has organised a cycling outing to East Coast Park this coming Saturday. The event is expected to last the entire day from 9am to 4pm.",
-  //     "Everyone in your neighbourhood is going but you have yet to make a decision. Your main concern is that your scholarship requires you to uphold a certain academic standard and with your first midterms soon approaching..."
-  //   ],
-  //   choice1: { 
-  //     name: 'choice1',
-  //     buttonText: 'JOIN CYCLING',
-  //     effect: { money: -5, socialLife: 15, academics: -15, happiness: 10 }, 
-  //     resultImage: scenario2Result1,
-  //     resultText: [
-  //       "East Coast Park was a blast! You took the opportunity to talk to more people and make new friends. Surprisingly, you found someone who loved TV remotes as much as you did!",
-  //       "Additionally, you felt that it was good to get out and touch grass given that you have been cooped up in your room studying all week."]
-  //   },
-  //   choice2: { 
-  //     name: 'choice2',
-  //     buttonText: 'REJECT THE INVITE',
-  //     effect: { money: 5, socialLife: -10, academics: 30, happiness: -10 }, 
-  //     resultImage: scenario2Result2,
-  //     resultText: [
-  //       "You hunkered down and locked in on Saturday while everyone was out enjoying themselves. Your handphone buzzes periodically, filled with messages from your hallmates.", 
-  //       "To you, this was a necessary sacrifice that you had to make to achieve your academic goals."]
-  //   }
-  // },
-  // {
-  //   id: 3,
-  //   descImage: scenario3Desc,
-  //   choiceImage: scenario3Choice,
-  //   descriptionText: [
-  //     "After cleaning up your room, you felt that something was amiss. Even though everything was in place, your room still ellicits a sense of emptiness.",
-  //     "Ahah! Due to space constraints, you were not able to bring with you your personal items from back home. That's why your room feels incomplete. But how should you fill that gap..."
-  //   ],
-  //   choice1: { 
-  //     name: 'choice1',
-  //     buttonText: 'BUY ROOM DECORATIONS',
-  //     effect: { money: -15, socialLife: 0, academics: 0, happiness: 20 }, 
-  //     resultImage: scenario3Result1,
-  //     resultText: ["You have arrived back in your room with 2 reusable bags full of items from Clementi Mall.", "'That poster should definitely go up there, this little plant can sit by window, and let me put this frog down here...'", "Half a day later, your room is finally decorated, embellished with items that remind you of home."]
-  //   },
-  //   choice2: { 
-  //     name: 'choice2',
-  //     buttonText: 'SAVE MONEY',
-  //     effect: { money: 20, socialLife: 0, academics: 0, happiness: -20 }, 
-  //     resultImage: scenario3Result2,
-  //     resultText: ["'The emptiness of my room gets to me at least my wallet isn't empty,' you say to yourself.", "Can you put a price on the feeling of home? How can you make sense of the spacious spaces around you?"]
-  //   }
-  // }
+//   {
+//     id: 2,
+//     descImage: scenario2Desc,
+//     choiceImage: scenario2Choice,
+//     descriptionText: [
+//       "Your neighbourhood has organised a cycling outing to East Coast Park this coming Saturday. The event is expected to last the entire day from 9am to 4pm.",
+//       "Everyone in your neighbourhood is going but you have yet to make a decision. Your main concern is that your scholarship requires you to uphold a certain academic standard and with your first midterms soon approaching..."
+//     ],
+//     choice1: { 
+//       name: 'choice1',
+//       buttonText: 'JOIN CYCLING',
+//       effect: { money: -5, socialLife: 15, academics: -15, happiness: 10 }, 
+//       resultImage: scenario2Result1,
+//       resultText: [
+//         "East Coast Park was a blast! You took the opportunity to talk to more people and make new friends. Surprisingly, you found someone who loved TV remotes as much as you did!",
+//         "Additionally, you felt that it was good to get out and touch grass given that you have been cooped up in your room studying all week."]
+//     },
+//     choice2: { 
+//       name: 'choice2',
+//       buttonText: 'REJECT THE INVITE',
+//       effect: { money: 5, socialLife: -10, academics: 30, happiness: -10 }, 
+//       resultImage: scenario2Result2,
+//       resultText: [
+//         "You hunkered down and locked in on Saturday while everyone was out enjoying themselves. Your handphone buzzes periodically, filled with messages from your hallmates.", 
+//         "To you, this was a necessary sacrifice that you had to make to achieve your academic goals."]
+//     }
+//   },
+//   {
+//     id: 3,
+//     descImage: scenario3Desc,
+//     choiceImage: scenario3Choice,
+//     descriptionText: [
+//       "After cleaning up your room, you felt that something was amiss. Even though everything was in place, your room still ellicits a sense of emptiness.",
+//       "Ahah! Due to space constraints, you were not able to bring with you your personal items from back home. That's why your room feels incomplete. But how should you fill that gap..."
+//     ],
+//     choice1: { 
+//       name: 'choice1',
+//       buttonText: 'BUY ROOM DECORATIONS',
+//       effect: { money: -15, socialLife: 0, academics: 0, happiness: 20 }, 
+//       resultImage: scenario3Result1,
+//       resultText: ["You have arrived back in your room with 2 reusable bags full of items from Clementi Mall.", "'That poster should definitely go up there, this little plant can sit by window, and let me put this frog down here...'", "Half a day later, your room is finally decorated, embellished with items that remind you of home."]
+//     },
+//     choice2: { 
+//       name: 'choice2',
+//       buttonText: 'SAVE MONEY',
+//       effect: { money: 20, socialLife: 0, academics: 0, happiness: -20 }, 
+//       resultImage: scenario3Result2,
+//       resultText: ["'The emptiness of my room gets to me at least my wallet isn't empty,' you say to yourself.", "Can you put a price on the feeling of home? How do you make sense of the spacious spaces around you?"]
+//     }
+//   }
 
 ];
 
@@ -418,19 +403,22 @@ export function DecisionGame() {
             }}
           />
 
-          <h1 className="relative z-10 text-4xl md:text-6xl font-anton font-bold text-center mb-4 transform -rotate-2"
-            style={{
-              color: '#6C5CE7',
-              textShadow: '4px 4px 0 #FFD93D, -2px -2px 0 black',
-              WebkitTextStroke: '2px black'
-            }}
-          >
-            FINAL STATS
-          </h1>
+          {/* Title and Text box side by side */}
+          <div className="relative z-10 w-full max-w-6xl flex flex-col pt-4 md:flex-row items-center justify-center gap-6 mb-8">
+            <h1 className="text-4xl md:text-6xl font-anton font-bold text-center transform -rotate-2"
+              style={{
+                color: '#6C5CE7',
+                textShadow: '4px 4px 0 #FFD93D, -2px -2px 0 black',
+                WebkitTextStroke: '2px black'
+              }}
+            >
+              FINAL STATS
+            </h1>
 
-          <p className="relative z-10 text-lg md:text-xl font-bold text-black text-center mb-6 bg-yellow-300 px-6 py-3 transform rotate-1 border-4 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)] max-w-xl">
-            Here's how your journey shaped your experience
-          </p>
+            <p className="text-lg md:text-xl font-bold text-black text-center bg-yellow-300 px-6 py-3 transform rotate-1 border-4 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)] shrink-0">
+              Here's how your journey shaped your experience
+            </p>
+          </div>
 
           {/* Large XP Bars */}
           <div className="relative z-10 w-full max-w-3xl space-y-4 mb-6">
@@ -474,7 +462,7 @@ export function DecisionGame() {
 
           <div className="relative z-10 max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             <p className="text-base md:text-lg font-bold text-black text-center bg-white px-6 pt-6 transform rotate-1 border-4 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)]">
-              The reality is that international students face these decisions <span className="text-red-600">every single day</span>.
+              The reality is that international students face these decisions <span className="text-red-600">every single day</span>. With every decision, sacrifices are made and trade-offs are incurred.
             </p>
             
             <p className="text-base md:text-lg font-bold text-black text-center bg-white px-6 py-6 transform -rotate-1 border-4 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)]">
@@ -494,7 +482,7 @@ export function DecisionGame() {
             onClick={resetGame}
             className="relative z-10 group px-12 py-5 text-2xl md:text-3xl font-anton font-bold text-white bg-linear-to-r from-green-400 via-blue-500 to-purple-600 border-4 border-black shadow-[6px_6px_0_0_rgba(0,0,0,1)] transform transition-all duration-200 hover:scale-105 hover:shadow-[8px_8px_0_0_rgba(0,0,0,1)]"
           >
-            PLAY AGAIN!
+            RESTART
             <div className="absolute -top-3 -right-3 w-10 h-10 bg-yellow-300 border-2 border-black rounded-full animate-spin" />
             <div className="absolute -top-3 -right-3 w-10 h-10 bg-yellow-300 border-2 border-black rounded-full flex items-center justify-center text-black text-xl">
               ↻
@@ -584,7 +572,7 @@ function ComicXPBar({ label, value, color }: ComicXPBarProps) {
           style={{ width: `${value}%` }}
         >
           {/* Shine effect */}
-          <div className="absolute inset-0 bg-linear-to-t from-transparent via-white/30 to-transparent" />
+          <div className="absolute inset-0 rounded-full bg-linear-to-t from-transparent via-white/30 to-transparent" />
         </div>
       </div>
     </div>
