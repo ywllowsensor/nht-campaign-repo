@@ -17,7 +17,7 @@ export function NavBar() {
                 ease="power2.easeOut"
                 baseColor="var(--primary)"
                 pillColor="var(--background-light)"
-                hoveredPillTextColor="var(--text)"
+                hoveredPillTextColor="#ffffff"
                 pillTextColor="var(--text)"
             />
         </div>

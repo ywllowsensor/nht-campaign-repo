@@ -7,7 +7,8 @@ export function SVGMaskEffectDemo() {
     <div className="flex h-full w-full items-center justift-center overflow-visible">
       <MaskContainer
         revealText={
-          <p className="mx-auto text-7xl text-start font-anton font-bold text-(--text) dark:text-white">
+          <p className="mx-auto text-7xl text-start font-anton font-bold text-(--text) dark:text-white"
+            style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.7)' }}>
             Internati
             <span className="inline-flex items-center">
               <img
@@ -21,7 +22,8 @@ export function SVGMaskEffectDemo() {
         }
         className="h-full max-w-3xl rounded-md"
       >
-        <p className="text-7xl font-anton font-bold text-start text-(--text)">
+        <p className="text-7xl font-anton font-bold text-start text-(--text)"
+          style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.7)' }}>
           The {" "}
           <span className="text-primary">unseen cost</span>
           {" "}  of belonging

@@ -2,7 +2,7 @@ import { HeroVideoDialogDemoTopInBottomOut } from "@/components/herovideodialogd
 import { Landing } from "@/components/landing"
 import { NavBar } from "@/components/navbar"
 import { Stats } from "@/components/stats"
-import { ScrollNarrative } from "@/components/stories"
+import { Burden } from "@/components/burden"
 
 
 export function HomePage() {
@@ -13,11 +13,11 @@ export function HomePage() {
             {/* landing page */}
             <Landing />
 
-            {/* stories of interviewees */}
-            <ScrollNarrative />
+            {/* stats section */}
+            <Stats />
 
-            {/* game section */}
-            
+            {/* burden section - invisible emotional load */}
+            <Burden />
 
             {/* short documentary */}
             <HeroVideoDialogDemoTopInBottomOut />

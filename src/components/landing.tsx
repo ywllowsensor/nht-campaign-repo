@@ -1,7 +1,5 @@
 import { SVGMaskEffectDemo } from "./svgmaskdemo"
 import coverimg from "../assets/images/cover-page-img.png"
-import AnimatedContent from "./ui/animated-content"
-import { Stats } from "./stats"
 import { useEffect, useRef } from "react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
@@ -9,23 +7,33 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 gsap.registerPlugin(ScrollTrigger)
 
 export function Landing() {
-    const imageRef = useRef<HTMLImageElement>(null)
+    const containerRef = useRef<HTMLDivElement>(null)
+    const imageRef = useRef<HTMLDivElement>(null)
+    const overlayRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
-        if (!imageRef.current) return
+        if (!containerRef.current || !imageRef.current || !overlayRef.current) return
 
         const ctx = gsap.context(() => {
-            // Fade out the cover image as the user scrolls down away from the landing
+            // Pin the image container
+            ScrollTrigger.create({
+                trigger: containerRef.current,
+                start: 'top top',
+                end: 'bottom top',
+                pin: imageRef.current,
+                pinSpacing: false
+            })
+
+            // Fade in black overlay as the user scrolls down
             gsap.fromTo(
-                imageRef.current,
-                { opacity: 1 },
+                overlayRef.current,
+                { opacity: 0 },
                 {
-                    opacity: 0.4,
+                    opacity: 0.3,
                     ease: 'none',
                     scrollTrigger: {
-                        trigger: imageRef.current,
+                        trigger: containerRef.current,
                         start: 'top top',
-                        // complete fade gradually over the full viewport height
                         end: 'bottom top',
                         scrub: 1,
                     },
@@ -37,14 +45,19 @@ export function Landing() {
     }, [])
 
     return (
-        <div className="w-full">
-            {/* Fixed Background Image */}
-            <div className="fixed top-0 left-0 w-full h-screen">
+        <div ref={containerRef} className="relative w-full h-screen">
+            {/* Pinned Background Image */}
+            <div ref={imageRef} className="absolute top-0 left-0 w-full h-screen">
                 <img
-                    ref={imageRef}
                     src={coverimg}
                     alt="Cover"
                     className="w-full h-full object-cover"
+                />
+                {/* Black overlay that fades in */}
+                <div 
+                    ref={overlayRef}
+                    className="absolute inset-0 bg-black pointer-events-none"
+                    style={{ opacity: 0 }}
                 />
             </div>
 
@@ -53,11 +66,6 @@ export function Landing() {
                 <div className="max-w-full">
                     <SVGMaskEffectDemo />
                 </div>
-            </div>
-
-            {/* Spacer that will cover the image as user scrolls */}
-            <div className="relative z-20 w-screen h-screen bg-background">
-                <Stats />
             </div>
         </div>
     )
