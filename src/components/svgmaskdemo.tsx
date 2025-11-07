@@ -4,10 +4,10 @@ import globeText from "../assets/globe-text.png";
 
 export function SVGMaskEffectDemo() {
   return (
-    <div className="flex h-full w-full items-center justift-center overflow-hidden bg-background">
+    <div className="flex h-full w-full items-center justift-center overflow-visible">
       <MaskContainer
         revealText={
-          <p className="mx-auto max-w-4xl text-[80px] text-start font-anton font-bold text-(--text) dark:text-white">
+          <p className="mx-auto text-7xl text-start font-anton font-bold text-(--text) dark:text-white">
             Internati
             <span className="inline-flex items-center">
               <img
@@ -19,13 +19,12 @@ export function SVGMaskEffectDemo() {
             <span className="text-primary">Finding Their Place</span>
           </p>
         }
-        className="h-full w-full rounded-md"
+        className="h-full max-w-3xl rounded-md"
       >
-        <p className="text-[80px] font-anton font-bold text-start text-(--text)">
+        <p className="text-7xl font-anton font-bold text-start text-(--text)">
           The {" "}
           <span className="text-primary">unseen cost</span>
           {" "}  of belonging
-          <span className="text-xl font anton font-bold text-orange-500">{" "} to a</span>
         </p>
       </MaskContainer>
     </div>

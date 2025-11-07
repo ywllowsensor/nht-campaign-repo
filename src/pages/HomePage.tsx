@@ -7,14 +7,11 @@ import { ScrollNarrative } from "@/components/stories"
 
 export function HomePage() {
     return (
-        <div className='flex flex-col justify-around items-center bg-background'>
+        <div className='flex flex-col w-full justify-around items-center bg-background'>
             <NavBar />
 
             {/* landing page */}
             <Landing />
-
-            {/* statistics about intl students */}
-            <Stats />
 
             {/* stories of interviewees */}
             <ScrollNarrative />

@@ -1,9 +1,1 @@
-<svg
-  width="1298"
-  height="1298"
-  viewBox="0 0 1298 1298"
-  fill="none"
-  xmlns="http://www.w3.org/2000/svg"
->
-  <circle cx="649" cy="649" r="649" fill="black" />
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1080" zoomAndPan="magnify" viewBox="0 0 810 809.999993" height="1080" preserveAspectRatio="xMidYMid meet" version="1.0"><defs><clipPath id="50e8201676"><path d="M 128.121094 347.503906 L 681.878906 347.503906 L 681.878906 462.496094 L 128.121094 462.496094 Z M 128.121094 347.503906 " clip-rule="nonzero"/></clipPath><clipPath id="348f7c137b"><path d="M 0.121094 0.503906 L 553.878906 0.503906 L 553.878906 115.496094 L 0.121094 115.496094 Z M 0.121094 0.503906 " clip-rule="nonzero"/></clipPath><clipPath id="e5b27b234c"><rect x="0" width="554" y="0" height="116"/></clipPath></defs><g clip-path="url(#50e8201676)"><g transform="matrix(1, 0, 0, 1, 128, 347)"><g clip-path="url(#e5b27b234c)"><g clip-path="url(#348f7c137b)"><path fill="#000000" d="M 0.121094 0.503906 L 553.957031 0.503906 L 553.957031 115.496094 L 0.121094 115.496094 Z M 0.121094 0.503906 " fill-opacity="1" fill-rule="nonzero"/></g></g></g></g></svg>
