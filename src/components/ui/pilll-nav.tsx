@@ -235,6 +235,14 @@ const PillNav: React.FC<PillNavProps> = ({
 
   const isRouterLink = (href?: string) => href && !isExternalLink(href);
 
+  const handleHomeClick = (e: React.MouseEvent, href: string) => {
+    // If clicking home link and already on home page, scroll to top
+    if (href === '/' && window.location.pathname === '/') {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   const cssVars = {
     ['--base']: baseColor,
     ['--pill-bg']: pillColor,
@@ -258,6 +266,7 @@ const PillNav: React.FC<PillNavProps> = ({
             to={items[0].href}
             aria-label="Home"
             onMouseEnter={handleLogoEnter}
+            onClick={(e) => handleHomeClick(e, items[0].href)}
             role="menuitem"
             ref={el => {
               logoRef.current = el;
@@ -276,6 +285,7 @@ const PillNav: React.FC<PillNavProps> = ({
             href={items?.[0]?.href || '#'}
             aria-label="Home"
             onMouseEnter={handleLogoEnter}
+            onClick={(e) => handleHomeClick(e, items?.[0]?.href || '#')}
             ref={el => {
               logoRef.current = el;
             }}
@@ -368,6 +378,7 @@ const PillNav: React.FC<PillNavProps> = ({
                       aria-label={item.ariaLabel || item.label}
                       onMouseEnter={() => handleEnter(i)}
                       onMouseLeave={() => handleLeave(i)}
+                      onClick={(e) => handleHomeClick(e, item.href)}
                     >
                       {PillContent}
                     </Link>
@@ -380,6 +391,7 @@ const PillNav: React.FC<PillNavProps> = ({
                       aria-label={item.ariaLabel || item.label}
                       onMouseEnter={() => handleEnter(i)}
                       onMouseLeave={() => handleLeave(i)}
+                      onClick={(e) => handleHomeClick(e, item.href)}
                     >
                       {PillContent}
                     </a>
@@ -448,7 +460,10 @@ const PillNav: React.FC<PillNavProps> = ({
                     style={defaultStyle}
                     onMouseEnter={hoverIn}
                     onMouseLeave={hoverOut}
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={(e) => {
+                      handleHomeClick(e, item.href);
+                      setIsMobileMenuOpen(false);
+                    }}
                   >
                     {item.label}
                   </Link>
@@ -459,7 +474,10 @@ const PillNav: React.FC<PillNavProps> = ({
                     style={defaultStyle}
                     onMouseEnter={hoverIn}
                     onMouseLeave={hoverOut}
-                    onClick={() => setIsMobileMenuOpen(false)}
+                    onClick={(e) => {
+                      handleHomeClick(e, item.href);
+                      setIsMobileMenuOpen(false);
+                    }}
                   >
                     {item.label}
                   </a>
