@@ -10,7 +10,6 @@ export function NavBar() {
                 items={[
                     { label: 'Home', href: '/' },
                     { label: 'Experience Now', href: '/game' },
-                    { label: 'Acknowledgements', href: '/acknowledgements' }
                 ]}
                 activeHref="/"
                 className="custom-nav"
