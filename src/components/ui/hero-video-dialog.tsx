@@ -76,11 +76,11 @@ export function HeroVideoDialog({
   const selectedAnimation = animationVariants[animationStyle]
 
   return (
-    <div className={cn("relative", className)}>
+    <div className={cn("relative max-h-[80vh]", className)}>
       <button
         type="button"
         aria-label="Play video"
-        className="group relative cursor-pointer border-0 bg-transparent p-0"
+        className="group relative cursor-pointer border-0 bg-transparent p-0 w-full"
         onClick={() => setIsVideoOpen(true)}
       >
         <img
@@ -88,7 +88,7 @@ export function HeroVideoDialog({
           alt={thumbnailAlt}
           width={1920}
           height={1080}
-          className="w-full rounded-md border shadow-lg transition-all duration-200 ease-out group-hover:brightness-[0.8]"
+          className="w-full max-h-[80vh] object-contain rounded-md transition-all duration-200 ease-out group-hover:brightness-[0.8]"
         />
         <div className="absolute inset-0 flex scale-[0.9] items-center justify-center rounded-2xl transition-all duration-200 ease-out group-hover:scale-100">
           <div className="bg-primary/10 flex size-28 items-center justify-center rounded-full backdrop-blur-md">
@@ -127,10 +127,10 @@ export function HeroVideoDialog({
               transition={{ type: "spring", damping: 30, stiffness: 300 }}
               className="relative mx-4 aspect-video w-full max-w-4xl md:mx-0"
             >
-              <motion.button className="absolute -top-16 right-0 rounded-full bg-neutral-800/50 p-2 text-xl text-secondary ring-1 hover:brightness-70 backdrop-blur-md dark:bg-neutral-100/50 dark:text-black">
-                <XIcon className="size-5" />
+              <motion.button className="absolute -top-16 right-0 rounded-full bg-neutral-800/50 p-2 text-xl text-primary ring-1 hover:brightness-70 backdrop-blur-md dark:bg-neutral-100/50 dark:text-black">
+                <XIcon className="size-5 text-white" />
               </motion.button>
-              <div className="relative isolate z-1 size-full overflow-hidden rounded-2xl border-2 border-secondary">
+              <div className="relative isolate z-1 size-full overflow-hidden rounded-2xl border-2 border-primary">
                 <iframe
                   src={videoSrc}
                   title="Hero Video player"
