@@ -235,7 +235,7 @@ export function GameIntro() {
               WebkitTextStroke: '2px black'
             }}
           >
-            Walk in Their Shoes
+            Walk Their Path
           </h2>
           <p className="text-2xl md:text-3xl lg:text-4xl font-radio font-bold text-black text-center mb-8 bg-yellow-300 px-6 py-3 transform rotate-1 border-4 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)]">
             Experience the journey. Make the choices. Feel the impact.
@@ -246,7 +246,7 @@ export function GameIntro() {
         <Link
           to="/game"
           ref={buttonRef}
-          className="absolute bottom-16 left-1/2 -translate-x-1/2 z-30 group"
+          className="absolute bottom-24 left-1/2 -translate-x-1/2 z-30 group"
           style={{ opacity: 0 }}
         >
           <div className="relative px-12 py-6 text-2xl md:text-3xl font-anton font-bold text-white bg-linear-to-r from-pink-500 via-purple-500 to-cyan-500 border-4 border-black shadow-[6px_6px_0_0_rgba(0,0,0,1)] transform transition-all duration-200 group-hover:scale-110 group-hover:shadow-[8px_8px_0_0_rgba(0,0,0,1)] group-hover:-translate-y-1 cursor-pointer">

@@ -57,27 +57,27 @@ const scenariosConfig: ScenarioData[] = [
     descImage: scenario1Desc,
     choiceImage: scenario1Choice,
     descriptionText: [
-      "Add your scenario description here. This is where you can explain the situation, context, and what the international student is facing in this moment.",
-      "You can add multiple paragraphs to fully describe the scenario and help the player understand the situation before making their choice."
+      "You are walking back to your room after the first day of lectures. As you head back, you notice some of your hallmates gathered near the lounge.",
+      "Curiosity got the better of you and overhear that they are talking about you. Later that night, that same hallmate knocked on your door and invites you to join them for supper."
     ],
     choice1: {
       name: 'choice1',
       buttonText: 'JOIN SUPPER',
-      effect: { money: -10, socialLife: 20, academics: -5, happiness: 15 },
+      effect: { money: -10, socialLife: 20, academics: 0, happiness: 15 },
       resultImage: scenario1Supper, // Assuming top button is "supper"
       resultText: [
-        "Describe what happened as a result of choosing to go to supper. Explain the immediate consequences and how it affects the international student's situation.",
-        "Show the impact on their money, social life, academics, and happiness. Help the player understand the real-world implications of this decision."
+        "You had a great time at supper! You found out that they were talking about you earlier that day, but it was because they were discussing what would be the best way to approach you without being intimidating.",
+        "They were only trying to be considerate, and that was something that you could appreciate."
       ]
     },
     choice2: {
       name: 'choice2',
       buttonText: 'STAY HOME',
-      effect: { money: 10, socialLife: -15, academics: 10, happiness: -5 },
+      effect: { money: 10, socialLife: -15, academics: 0, happiness: 5 },
       resultImage: scenario1StayHome, // Assuming bottom button is "stay home"
       resultText: [
-        "Describe what happened as a result of choosing to stay home. Explain the immediate consequences and how it affects the international student's situation.",
-        "Show the impact on their money, social life, academics, and happiness. Help the player understand the real-world implications of this decision."
+        "In an unfamiliar environment, your room formed a safe space. Yet, you could not help but wonder why your name was mentioned in your hallmates' conversation.",
+        "That thought accompanied you throughout the night. Should you have accepted the invitation?"
       ]
     }
   }
@@ -87,24 +87,52 @@ const scenariosConfig: ScenarioData[] = [
   //   descImage: scenario2Desc,
   //   choiceImage: scenario2Choice,
   //   descriptionText: [
-  //     "First paragraph of scenario 2 description...",
-  //     "Second paragraph of scenario 2 description..."
+  //     "Your neighbourhood has organised a cycling outing to East Coast Park this coming Saturday. The event is expected to last the entire day from 9am to 4pm.",
+  //     "Everyone in your neighbourhood is going but you have yet to make a decision. Your main concern is that your scholarship requires you to uphold a certain academic standard and with your first midterms soon approaching..."
   //   ],
   //   choice1: { 
   //     name: 'choice1',
-  //     buttonText: 'OPTION 1 TEXT',
-  //     effect: { ... }, 
+  //     buttonText: 'JOIN CYCLING',
+  //     effect: { money: -5, socialLife: 15, academics: -15, happiness: 10 }, 
   //     resultImage: scenario2Result1,
-  //     resultText: ["First paragraph...", "Second paragraph..."]
+  //     resultText: [
+  //       "East Coast Park was a blast! You took the opportunity to talk to more people and make new friends. Surprisingly, you found someone who loved TV remotes as much as you did!",
+  //       "Additionally, you felt that it was good to get out and touch grass given that you have been cooped up in your room studying all week."]
   //   },
   //   choice2: { 
   //     name: 'choice2',
-  //     buttonText: 'OPTION 2 TEXT',
-  //     effect: { ... }, 
+  //     buttonText: 'REJECT THE INVITE',
+  //     effect: { money: 5, socialLife: -10, academics: 30, happiness: -10 }, 
   //     resultImage: scenario2Result2,
-  //     resultText: ["First paragraph...", "Second paragraph..."]
+  //     resultText: [
+  //       "You hunkered down and locked in on Saturday while everyone was out enjoying themselves. Your handphone buzzes periodically, filled with messages from your hallmates.", 
+  //       "To you, this was a necessary sacrifice that you had to make to achieve your academic goals."]
   //   }
   // },
+  // {
+  //   id: 3,
+  //   descImage: scenario3Desc,
+  //   choiceImage: scenario3Choice,
+  //   descriptionText: [
+  //     "After cleaning up your room, you felt that something was amiss. Even though everything was in place, your room still ellicits a sense of emptiness.",
+  //     "Ahah! Due to space constraints, you were not able to bring with you your personal items from back home. That's why your room feels incomplete. But how should you fill that gap..."
+  //   ],
+  //   choice1: { 
+  //     name: 'choice1',
+  //     buttonText: 'BUY ROOM DECORATIONS',
+  //     effect: { money: -15, socialLife: 0, academics: 0, happiness: 20 }, 
+  //     resultImage: scenario3Result1,
+  //     resultText: ["You have arrived back in your room with 2 reusable bags full of items from Clementi Mall.", "'That poster should definitely go up there, this little plant can sit by window, and let me put this frog down here...'", "Half a day later, your room is finally decorated, embellished with items that remind you of home."]
+  //   },
+  //   choice2: { 
+  //     name: 'choice2',
+  //     buttonText: 'SAVE MONEY',
+  //     effect: { money: 20, socialLife: 0, academics: 0, happiness: -20 }, 
+  //     resultImage: scenario3Result2,
+  //     resultText: ["'The emptiness of my room gets to me at least my wallet isn't empty,' you say to yourself.", "Can you put a price on the feeling of home? How can you make sense of the spacious spaces around you?"]
+  //   }
+  // }
+
 ];
 
 export function DecisionGame() {
@@ -165,39 +193,57 @@ export function DecisionGame() {
     <div className="w-full min-h-screen bg-primary/80 relative">
       {/* Title Screen */}
       {gameStage === 'title' && (
-        <div className="w-full h-screen flex flex-col items-center justify-center p-8 md:p-12 bg-linear-to-br from-blue-600 to-blue-400 relative overflow-hidden">
-          {/* Comic burst decorations */}
-          <div className="absolute top-10 left-10 text-6xl md:text-8xl font-bold text-yellow-400 transform -rotate-12 animate-bounce" style={{ textShadow: '4px 4px 0 #FF6B6B, -2px -2px 0 black' }}>
-            POW!
+        <div className="w-full h-screen flex flex-col items-center justify-center p-8 md:p-12 bg-linear-to-br from-purple-600 via-pink-500 to-orange-400 relative overflow-hidden">
+          {/* Polka dots pattern overlay */}
+          <div 
+            className="absolute inset-0 opacity-20"
+            style={{
+              backgroundImage: `radial-gradient(circle, white 2px, transparent 2px)`,
+              backgroundSize: '40px 40px'
+            }}
+          />
+
+
+          {/* Animated comic elements - scattered around */}
+          <div className="absolute top-20 left-20 text-5xl md:text-7xl font-bold text-yellow-300 transform -rotate-12 animate-pulse" style={{ textShadow: '3px 3px 0 #000, -2px -2px 0 #fff' }}>
+            👥
           </div>
-          <div className="absolute bottom-10 right-10 text-6xl md:text-8xl font-bold text-pink-400 transform rotate-12 animate-bounce" style={{ textShadow: '4px 4px 0 #4ECDC4, -2px -2px 0 black' }}>
-            BAM!
+          <div className="absolute top-32 right-32 text-4xl md:text-6xl font-bold text-cyan-300 transform rotate-12 animate-bounce" style={{ textShadow: '3px 3px 0 #000, -2px -2px 0 #fff' }}>
+            💰
+          </div>
+          <div className="absolute bottom-32 left-32 text-5xl md:text-7xl font-bold text-pink-300 transform rotate-6" style={{ textShadow: '3px 3px 0 #000, -2px -2px 0 #fff' }}>
+            😊
+          </div>
+          <div className="absolute bottom-20 right-20 text-4xl md:text-6xl font-bold text-green-300 transform -rotate-6 animate-pulse" style={{ textShadow: '3px 3px 0 #000, -2px -2px 0 #fff' }}>
+            📚
           </div>
 
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-anton font-bold text-center mb-6 transform -rotate-2"
+          <h1 className="relative z-10 text-6xl md:text-8xl lg:text-9xl font-anton font-bold text-center mb-6 transform rotate-1"
             style={{
-              color: '#FF6B6B',
-              textShadow: '6px 6px 0 #4ECDC4, -3px -3px 0 black',
-              WebkitTextStroke: '3px black'
+              color: '#FFF',
+              textShadow: '8px 8px 0 #000, 4px 4px 0 #FF1493',
+              WebkitTextStroke: '4px black'
             }}
           >
             Walk Their Path
           </h1>
           
-          <p className="text-2xl md:text-3xl font-radio font-bold text-black text-center mb-12 bg-yellow-300 px-8 py-4 transform rotate-1 border-4 border-black shadow-[6px_6px_0_0_rgba(0,0,0,1)] max-w-3xl">
-            Make choices. See consequences. Feel the journey.
+          <p className="relative z-10 text-xl md:text-2xl font-radio font-bold text-black text-center mb-12 bg-white px-10 py-5 transform -rotate-1 border-4 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] max-w-3xl">
+            An Interactive Decision-Based Experience
+            <br />
+            <span className="text-lg md:text-xl">You are about to begin a new chapter of your life here in Singapore. How will you balance your finances, academics, social life and individual happiness?</span>
           </p>
 
           <button
             onClick={() => {
               setGameStage('desc');
             }}
-            className="group relative px-16 py-6 text-3xl md:text-4xl font-anton font-bold text-white bg-linear-to-r from-pink-500 via-purple-500 to-cyan-500 border-4 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] transform transition-all duration-200 hover:scale-110 hover:shadow-[12px_12px_0_0_rgba(0,0,0,1)] hover:-translate-y-2"
+            className="relative z-10 group px-16 py-6 text-3xl md:text-4xl font-anton font-bold text-black bg-yellow-300 border-4 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] transform transition-all duration-200 hover:scale-110 hover:shadow-[12px_12px_0_0_rgba(0,0,0,1)] hover:-translate-y-2 hover:rotate-2"
           >
-            START YOUR JOURNEY!
-            <div className="absolute -top-4 -right-4 w-12 h-12 bg-yellow-300 border-2 border-black rounded-full animate-ping" />
-            <div className="absolute -top-4 -right-4 w-12 h-12 bg-yellow-300 border-2 border-black rounded-full flex items-center justify-center text-black text-2xl">
-              ★
+            START!
+            <div className="absolute -top-3 -right-3 w-12 h-12 bg-red-500 border-2 border-black rounded-full animate-ping" />
+            <div className="absolute -top-3 -right-3 w-12 h-12 bg-red-500 border-2 border-black rounded-full flex items-center justify-center text-white text-2xl font-bold">
+              GO
             </div>
           </button>
         </div>
@@ -362,12 +408,17 @@ export function DecisionGame() {
       {/* Final Stats Screen */}
       {gameStage === 'finalStats' && (
         <div className="w-full h-screen flex flex-col items-center justify-center p-6 md:p-8 bg-background relative overflow-y-auto">
-          {/* Comic burst decoration */}
-          <div className="absolute top-4 left-4 text-4xl md:text-5xl font-bold text-green-400 transform -rotate-12 animate-pulse" style={{ textShadow: '3px 3px 0 #FFD93D, -2px -2px 0 black' }}>
-            BOOM!
-          </div>
+          {/* Polka dots pattern overlay */}
+          <div 
+            className="absolute inset-0 opacity-10"
+            style={{
+              backgroundImage: `radial-gradient(circle, currentColor 2px, transparent 2px)`,
+              backgroundSize: '30px 30px',
+              color: 'var(--secondary)'
+            }}
+          />
 
-          <h1 className="text-4xl md:text-6xl font-anton font-bold text-center mb-4 transform -rotate-2"
+          <h1 className="relative z-10 text-4xl md:text-6xl font-anton font-bold text-center mb-4 transform -rotate-2"
             style={{
               color: '#6C5CE7',
               textShadow: '4px 4px 0 #FFD93D, -2px -2px 0 black',
@@ -377,12 +428,12 @@ export function DecisionGame() {
             FINAL STATS
           </h1>
 
-          <p className="text-lg md:text-xl font-bold text-black text-center mb-6 bg-yellow-300 px-6 py-3 transform rotate-1 border-4 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)] max-w-xl">
+          <p className="relative z-10 text-lg md:text-xl font-bold text-black text-center mb-6 bg-yellow-300 px-6 py-3 transform rotate-1 border-4 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)] max-w-xl">
             Here's how your journey shaped your experience
           </p>
 
           {/* Large XP Bars */}
-          <div className="w-full max-w-3xl space-y-4 mb-6">
+          <div className="relative z-10 w-full max-w-3xl space-y-4 mb-6">
             <ComicXPBar label="💰 MONEY" value={xp.money} color="from-green-400 to-green-600" />
             <ComicXPBar label="👥 SOCIAL LIFE" value={xp.socialLife} color="from-blue-400 to-blue-600" />
             <ComicXPBar label="📚 ACADEMICS" value={xp.academics} color="from-purple-400 to-purple-600" />
@@ -391,7 +442,7 @@ export function DecisionGame() {
 
           <button
             onClick={() => setGameStage('conclusion')}
-            className="px-10 py-4 text-2xl font-anton font-bold text-white bg-linear-to-r from-cyan-500 via-purple-500 to-pink-500 border-4 border-black shadow-[6px_6px_0_0_rgba(0,0,0,1)] transform transition-all duration-200 hover:scale-105 hover:shadow-[8px_8px_0_0_rgba(0,0,0,1)]"
+            className="relative z-10 px-10 py-4 text-2xl font-anton font-bold text-white bg-linear-to-r from-cyan-500 via-purple-500 to-pink-500 border-4 border-black shadow-[6px_6px_0_0_rgba(0,0,0,1)] transform transition-all duration-200 hover:scale-105 hover:shadow-[8px_8px_0_0_rgba(0,0,0,1)]"
           >
             CONTINUE →
           </button>
@@ -401,15 +452,17 @@ export function DecisionGame() {
       {/* Conclusion Screen */}
       {gameStage === 'conclusion' && (
         <div className="w-full h-screen flex flex-col items-center justify-center p-6 md:p-8 bg-background relative overflow-y-auto">
-          {/* Comic decorations - smaller and positioned better */}
-          <div className="absolute top-4 right-4 text-4xl md:text-5xl font-bold text-pink-400 transform rotate-12 animate-bounce" style={{ textShadow: '3px 3px 0 #4ECDC4, -2px -2px 0 black' }}>
-            ZING!
-          </div>
-          <div className="absolute bottom-4 left-4 text-4xl md:text-5xl font-bold text-yellow-400 transform -rotate-12 animate-bounce" style={{ textShadow: '3px 3px 0 #FF6B6B, -2px -2px 0 black' }}>
-            WOW!
-          </div>
+          {/* Polka dots pattern overlay */}
+          <div 
+            className="absolute inset-0 opacity-10"
+            style={{
+              backgroundImage: `radial-gradient(circle, currentColor 2px, transparent 2px)`,
+              backgroundSize: '30px 30px',
+              color: 'var(--secondary)'
+            }}
+          />
 
-          <h1 className="text-3xl md:text-5xl font-anton font-bold text-center mb-4 transform -rotate-1"
+          <h1 className="relative z-10 text-3xl md:text-5xl font-anton font-bold text-center mb-8 transform -rotate-1"
             style={{
               color: '#FF6B6B',
               textShadow: '4px 4px 0 #4ECDC4, -2px -2px 0 black',
@@ -419,27 +472,27 @@ export function DecisionGame() {
             Every Choice Matters
           </h1>
 
-          <div className="max-w-3xl space-y-4 mb-6">
-            <p className="text-base md:text-lg font-bold text-black text-center bg-white px-6 py-4 transform rotate-1 border-4 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)]">
-              International students face these decisions <span className="text-red-600">every single day</span>.
+          <div className="relative z-10 max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <p className="text-base md:text-lg font-bold text-black text-center bg-white px-6 pt-6 transform rotate-1 border-4 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)]">
+              The reality is that international students face these decisions <span className="text-red-600">every single day</span>.
             </p>
             
-            <p className="text-base md:text-lg font-bold text-black text-center bg-white px-6 py-4 transform -rotate-1 border-4 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)]">
-              Balancing money, social life, academics, and happiness isn't easy when you're far from home.
+            <p className="text-base md:text-lg font-bold text-black text-center bg-white px-6 py-6 transform -rotate-1 border-4 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)]">
+              Balancing finances, a social life, academics, and individual happiness isn't easy when you're far from home.
             </p>
 
-            <p className="text-base md:text-lg font-bold text-black text-center bg-yellow-300 px-6 py-4 transform rotate-1 border-4 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)]">
+            <p className="text-base md:text-lg font-bold text-black text-center bg-yellow-300 px-6 py-6 transform rotate-1 border-4 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)]">
               Now imagine doing this in a <span className="text-purple-700">foreign country</span>, with <span className="text-purple-700">different cultures</span>, and <span className="text-purple-700">limited support</span>.
             </p>
 
-            <p className="text-lg md:text-xl font-bold text-white text-center bg-linear-to-r from-pink-500 via-purple-500 to-cyan-500 px-6 py-4 transform -rotate-1 border-4 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)]">
-              A simple conversation from you could make ALL the difference. 💙
+            <p className="text-lg md:text-xl font-bold text-white text-center bg-linear-to-r from-pink-500 via-purple-500 to-cyan-500 px-6 py-6 transform -rotate-1 border-4 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)]">
+              A simple conversation from you could make ALL the difference.
             </p>
           </div>
 
           <button
             onClick={resetGame}
-            className="group relative px-12 py-5 text-2xl md:text-3xl font-anton font-bold text-white bg-linear-to-r from-green-400 via-blue-500 to-purple-600 border-4 border-black shadow-[6px_6px_0_0_rgba(0,0,0,1)] transform transition-all duration-200 hover:scale-105 hover:shadow-[8px_8px_0_0_rgba(0,0,0,1)]"
+            className="relative z-10 group px-12 py-5 text-2xl md:text-3xl font-anton font-bold text-white bg-linear-to-r from-green-400 via-blue-500 to-purple-600 border-4 border-black shadow-[6px_6px_0_0_rgba(0,0,0,1)] transform transition-all duration-200 hover:scale-105 hover:shadow-[8px_8px_0_0_rgba(0,0,0,1)]"
           >
             PLAY AGAIN!
             <div className="absolute -top-3 -right-3 w-10 h-10 bg-yellow-300 border-2 border-black rounded-full animate-spin" />
@@ -498,7 +551,6 @@ function MiniXPBar({ emoji, value, color }: MiniXPBarProps) {
           style={{ width: `${value}%` }}
         />
       </div>
-      <span className="text-xs font-bold text-black w-7 text-right">{value}</span>
     </div>
   );
 }
@@ -516,9 +568,6 @@ function ComicXPBar({ label, value, color }: ComicXPBarProps) {
       <div className="flex justify-between items-center">
         <span className="font-anton font-bold text-xl text-white" style={{ textShadow: '2px 2px 0 rgba(0,0,0,0.5)' }}>
           {label}
-        </span>
-        <span className="font-anton font-bold text-xl text-yellow-300" style={{ textShadow: '2px 2px 0 rgba(0,0,0,0.5)' }}>
-          {value}
         </span>
       </div>
       <div className="w-full h-8 bg-gray-800 rounded-full border-4 border-black shadow-[4px_4px_0_0_rgba(0,0,0,0.5)] overflow-hidden relative">
