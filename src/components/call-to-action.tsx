@@ -16,7 +16,7 @@ export function CallToAction() {
         if (!containerRef.current || !titleRef.current || !subtitle1Ref.current || !subtitle2Ref.current || !cardsRef.current || !handRef.current) return;
 
         const ctx = gsap.context(() => {
-            // Title slides in from left
+            // Title slides in from left - triggers earlier
             gsap.fromTo(
                 titleRef.current,
                 {
@@ -30,7 +30,7 @@ export function CallToAction() {
                     ease: 'power3.out',
                     scrollTrigger: {
                         trigger: containerRef.current,
-                        start: 'top 80%',
+                        start: 'top bottom',
                         toggleActions: 'play none none reverse'
                     }
                 }
@@ -51,7 +51,7 @@ export function CallToAction() {
                     ease: 'power2.out',
                     scrollTrigger: {
                         trigger: containerRef.current,
-                        start: 'top 80%',
+                        start: 'top bottom',
                         toggleActions: 'play none none reverse'
                     }
                 }
@@ -72,7 +72,7 @@ export function CallToAction() {
                     ease: 'power2.out',
                     scrollTrigger: {
                         trigger: containerRef.current,
-                        start: 'top 80%',
+                        start: 'top bottom',
                         toggleActions: 'play none none reverse'
                     }
                 }
@@ -140,7 +140,6 @@ export function CallToAction() {
         <div
             ref={containerRef}
             className="relative w-full min-h-screen bg-primary pt-20 px-6 md:px-12 lg:px-20 overflow-hidden"
-            // style={{ backgroundColor: 'var(--background-dark)' }}
         >
             {/* Decorative elements */}
             <div className="absolute top-10 right-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
@@ -152,8 +151,9 @@ export function CallToAction() {
                 <div className="text-center mb-8">
                     <h2
                         ref={titleRef}
-                        className="text-5xl md:text-6xl lg:text-7xl font-anton font-bold text-(--text) mb-4 opacity-0"
+                        className="text-5xl md:text-6xl lg:text-7xl font-anton font-bold mb-4"
                         style={{
+                            color: 'var(--text)',
                             textShadow: '3px 3px 0 rgba(0,0,0,0.1)'
                         }}
                     >
@@ -161,13 +161,15 @@ export function CallToAction() {
                     </h2>
                     <p
                         ref={subtitle1Ref}
-                        className="text-2xl md:text-3xl font-radio text-(--text)/80 mb-2 opacity-0"
+                        className="text-2xl md:text-3xl font-radio mb-2"
+                        style={{ color: 'var(--text)', opacity: 0.9 }}
                     >
                         You've walked in their shoes. Now reach out.
                     </p>
                     <p
                         ref={subtitle2Ref}
-                        className="text-xl md:text-2xl font-radio text-(--text)/70 opacity-0"
+                        className="text-xl md:text-2xl font-radio"
+                        style={{ color: 'var(--text)', opacity: 0.8 }}
                     >
                         Every act of empathy creates a ripple of belonging.
                     </p>
@@ -190,7 +192,7 @@ export function CallToAction() {
                             <h3 className="text-2xl font-anton font-bold text-primary mb-3">
                                 {action.title}
                             </h3>
-                            <p className="text-lg font-radio text-(--text)/70 leading-relaxed">
+                            <p className="text-lg font-radio leading-relaxed" style={{ color: 'var(--text)', opacity: 0.8 }}>
                                 {action.description}
                             </p>
                         </div>
