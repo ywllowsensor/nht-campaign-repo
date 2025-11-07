@@ -5,6 +5,7 @@ import { Stories } from "@/components/stories"
 import { Burden } from "@/components/burden"
 import { AcculturativeStress } from "@/components/acculturative-stress"
 import { GameIntro } from "@/components/game-intro"
+import { CallToAction } from "@/components/call-to-action"
 
 
 export function HomePage() {
@@ -30,7 +31,8 @@ export function HomePage() {
             {/* short documentary */}
             <HeroVideoDialogDemoTopInBottomOut />
 
-            {/* summary of challenges + making sense of belonging */}
+            {/* call to action */}
+            <CallToAction />
         </div>
     )
 }
