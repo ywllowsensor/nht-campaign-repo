@@ -214,9 +214,9 @@ export function DecisionGame() {
           </h1>
           
           <p className="relative z-10 text-xl md:text-2xl font-radio font-bold text-black text-center mb-12 bg-white px-10 py-5 transform -rotate-1 border-4 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] max-w-3xl">
-            An Interactive Decision-Based Experience
+            <span className='underline'>An Interactive Decision-Based Experience</span>
             <br />
-            <span className="text-lg md:text-xl">You are about to begin a new chapter of your life here in Singapore. How will you balance your finances, academics, social life and individual happiness?</span>
+            <span className="text-lg md:text-xl">You are about to begin a new chapter of your life here in Singapore. How will you balance your finances, academics, social life and personal happiness?</span>
           </p>
 
           <button
@@ -461,12 +461,12 @@ export function DecisionGame() {
           </h1>
 
           <div className="relative z-10 max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-            <p className="text-base md:text-lg font-bold text-black text-center bg-white px-6 pt-6 transform rotate-1 border-4 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)]">
+            <p className="text-base md:text-lg font-bold text-black text-center bg-white px-6 py-6 transform rotate-1 border-4 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)]">
               The reality is that international students face these decisions <span className="text-red-600">every single day</span>. With every decision, sacrifices are made and trade-offs are incurred.
             </p>
             
             <p className="text-base md:text-lg font-bold text-black text-center bg-white px-6 py-6 transform -rotate-1 border-4 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)]">
-              Balancing finances, a social life, academics, and individual happiness isn't easy when you're far from home.
+              Balancing finances, a social life, academics, and personal happiness isn't easy when you're far from home.
             </p>
 
             <p className="text-base md:text-lg font-bold text-black text-center bg-yellow-300 px-6 py-6 transform rotate-1 border-4 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)]">
