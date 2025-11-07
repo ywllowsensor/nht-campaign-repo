@@ -416,7 +416,7 @@ export function DecisionGame() {
             </h1>
 
             <p className="text-lg md:text-xl font-bold text-black text-center bg-yellow-300 px-6 py-3 transform rotate-1 border-4 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)] shrink-0">
-              Here's how your journey shaped your experience
+              Here's how your journey shaped your experience!
             </p>
           </div>
 
