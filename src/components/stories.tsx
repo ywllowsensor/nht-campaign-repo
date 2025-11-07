@@ -1,206 +1,227 @@
-import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import ScrollVelocity from './ui/scroll-velocity';
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import localDuy from "../assets/images/IMG_9547.jpg";
-import localShayona from "../assets/images/DSCF9599.jpg";
-import localSelwyn from "../assets/images/IMG_9615.jpg";
+import localDuy from "../assets/images/duy-portrait.png";
+import localSelwyn from "../assets/images/selwyn-portrait.png";
+import localShayona from "../assets/images/shayona-portrait.png";
 
-// Register GSAP plugin
 gsap.registerPlugin(ScrollTrigger);
 
-export function ScrollNarrative() {
+// Sample data for 3 persons
+const personsData = [
+    {
+        id: 1,
+        name: "Shayona",
+        image: localShayona,
+        title: "First Year Exchange Student",
+        description: `Moving to a new country for studies was both exhilarating and terrifying. The first few weeks were a whirlwind of emotions - excitement about new opportunities mixed with homesickness and culture shock. Simple tasks like ordering food or navigating public transport became daily challenges that tested my confidence.
+
+Language barriers made everything more difficult. Even though I studied English for years, understanding local accents and slang was completely different from textbook learning. I found myself nodding along to conversations I didn't fully understand, too embarrassed to ask people to repeat themselves.
+
+The academic system was also very different from what I was used to. The emphasis on independent learning and critical thinking was refreshing but overwhelming. I had to unlearn passive learning habits and become more vocal in class discussions, which went against everything I'd been taught about respecting authority and not standing out.
+
+Despite these challenges, I slowly found my community. International student groups became my support system, where we could share our struggles and celebrate small victories together. I learned that everyone was going through similar experiences, and that made me feel less alone in this journey.`
+    },
+    {
+        id: 2,
+        name: "Selwyn",
+        image: localSelwyn,
+        title: "Graduate Research Assistant",
+        description: `The pressure to succeed academically while managing financial stress is constant. As an international student, I pay significantly higher tuition fees and can't work off-campus, which limits my income opportunities. Every expense needs to be carefully calculated.
+
+Beyond finances, there's the invisible burden of representing my entire country and culture. People often make assumptions or ask me to speak for all people from my background, as if I'm a cultural ambassador rather than an individual student. This weight of representation is exhausting.`
+    },
+    {
+        id: 3,
+        name: "Duy",
+        image: localDuy,
+        title: "Senior International Student",
+        description: `After three years here, I've found my rhythm, but the question of belonging still lingers. I'm no longer quite the same person I was when I left home, yet I don't fully belong here either. This sense of being between two worlds is both liberating and isolating.
+
+I've learned to embrace my hybrid identity - taking the best from both cultures and creating something uniquely mine. My friend group is wonderfully diverse, and we've built our own little international community where everyone's background is celebrated.
+
+The friendships I've made here are deep and meaningful, forged through shared experiences of navigating life in a foreign land. We understand each other's struggles without needing to explain them. These connections have become my anchor.
+
+Looking back, I'm grateful for this journey. The challenges have shaped me into a more resilient, adaptable, and empathetic person. I've learned that home isn't just a place - it's the people you connect with and the sense of belonging you create wherever you are.
+
+As graduation approaches, I face new questions about where I belong and where my future lies. But I've learned that it's okay not to have all the answers. The journey of finding belonging is ongoing, and that's perfectly fine.`
+    }
+];
+
+export function Stories() {
     const containerRef = useRef<HTMLDivElement>(null);
-    const horizontal1Ref = useRef<HTMLDivElement>(null);
-    const story1Ref = useRef<HTMLDivElement>(null);
-    const horizontal2Ref = useRef<HTMLDivElement>(null);
-    const story3Ref = useRef<HTMLDivElement>(null);
+    const imageColumnRef = useRef<HTMLDivElement>(null);
+    const section1Ref = useRef<HTMLDivElement>(null);
+    const section2Ref = useRef<HTMLDivElement>(null);
+    const section3Ref = useRef<HTMLDivElement>(null);
+    const image1Ref = useRef<HTMLDivElement>(null);
+    const image2Ref = useRef<HTMLDivElement>(null);
+    const image3Ref = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        if (!containerRef.current || !horizontal1Ref.current || !story1Ref.current ||
-            !horizontal2Ref.current || !story3Ref.current) return;
+        if (!containerRef.current || !imageColumnRef.current) return;
 
         const ctx = gsap.context(() => {
-            // First diagonal scroll: Intro -> Story 1 (slides from bottom-right)
-            const horizontal1Tween = gsap.fromTo(
-                story1Ref.current,
-                { x: '100vw', y: '100vh' },
-                {
-                    x: '0vw',
-                    y: '0vh',
-                    ease: 'none',
-                    scrollTrigger: {
-                        trigger: horizontal1Ref.current,
-                        start: 'top top',
-                        end: '+=100%',
-                        scrub: 1,
-                        pin: true,
-                        anticipatePin: 1,
-                        invalidateOnRefresh: true,
-                    },
-                }
-            );
+            // Pin the image column while content scrolls
+            ScrollTrigger.create({
+                trigger: containerRef.current,
+                start: "top top",
+                end: "bottom bottom",
+                pin: imageColumnRef.current,
+                pinSpacing: false,
+            });
 
-            // Second scroll: Story 2 -> Story 3 (slides down from top)
-            const horizontal2Tween = gsap.fromTo(
-                story3Ref.current,
-                { y: '-100vh' },
-                {
-                    y: '0vh',
-                    ease: 'none',
-                    scrollTrigger: {
-                        trigger: horizontal2Ref.current,
-                        start: 'top top',
-                        end: '+=100%',
-                        scrub: 1,
-                        pin: true,
-                        anticipatePin: 1,
-                        invalidateOnRefresh: true,
-                    },
-                }
-            );
+            // Switch to image 1 when section 1 is in view (instant, no animation)
+            ScrollTrigger.create({
+                trigger: section1Ref.current,
+                start: "top center",
+                end: "bottom center",
+                onEnter: () => {
+                    gsap.set(image1Ref.current, { opacity: 1 });
+                    gsap.set(image2Ref.current, { opacity: 0 });
+                    gsap.set(image3Ref.current, { opacity: 0 });
+                },
+                onEnterBack: () => {
+                    gsap.set(image1Ref.current, { opacity: 1 });
+                    gsap.set(image2Ref.current, { opacity: 0 });
+                    gsap.set(image3Ref.current, { opacity: 0 });
+                },
+            });
 
-            return () => {
-                horizontal1Tween.scrollTrigger?.kill();
-                horizontal2Tween.scrollTrigger?.kill();
-            };
+            // Switch to image 2 when section 2 is in view (instant, no animation)
+            ScrollTrigger.create({
+                trigger: section2Ref.current,
+                start: "top center",
+                end: "bottom center",
+                onEnter: () => {
+                    gsap.set(image1Ref.current, { opacity: 0 });
+                    gsap.set(image2Ref.current, { opacity: 1 });
+                    gsap.set(image3Ref.current, { opacity: 0 });
+                },
+                onEnterBack: () => {
+                    gsap.set(image1Ref.current, { opacity: 0 });
+                    gsap.set(image2Ref.current, { opacity: 1 });
+                    gsap.set(image3Ref.current, { opacity: 0 });
+                },
+            });
+
+            // Switch to image 3 when section 3 is in view (instant, no animation)
+            ScrollTrigger.create({
+                trigger: section3Ref.current,
+                start: "top center",
+                end: "bottom center",
+                onEnter: () => {
+                    gsap.set(image1Ref.current, { opacity: 0 });
+                    gsap.set(image2Ref.current, { opacity: 0 });
+                    gsap.set(image3Ref.current, { opacity: 1 });
+                },
+                onEnterBack: () => {
+                    gsap.set(image1Ref.current, { opacity: 0 });
+                    gsap.set(image2Ref.current, { opacity: 0 });
+                    gsap.set(image3Ref.current, { opacity: 1 });
+                },
+            });
         }, containerRef);
 
-        return () => {
-            ctx.revert();
-        };
+        return () => ctx.revert();
     }, []);
 
     return (
-        <div ref={containerRef} className="w-full bg-background">
-
-            {/* First Horizontal Section: Intro -> Story 1 */}
-            <div ref={horizontal1Ref} className="h-screen w-full relative overflow-hidden">
-                {/* Intro Section (background) */}
-                <div className="absolute inset-0 w-full h-full flex items-center justify-center bg-background from-primary to-secondary">
-                    <div className="text-center px-8">
-                        <h1 className="text-7xl font-anton text-primary mb-6">
-                            Stories of Belonging
-                        </h1>
-                        <p className="text-xl text-accent font-radio max-w-2xl mx-auto">
-                            Scroll down to learn more about our international students
-                        </p>
-                    </div>
-                </div>
-
-                {/* Story 1 (slides in from right) */}
-                <div ref={story1Ref} className="absolute inset-0 w-full h-full flex flex-col justify-evenly items-center bg-background pt-20">
-                    <div className="container mx-auto px-8">
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                            <div className="w-full h-[400px] overflow-visible shadow-2xl">
+        <div ref={containerRef} className="relative w-full bg-background py-20">
+            <div className="container mx-auto px-8">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    {/* Left Column - Fixed Image */}
+                    <div ref={imageColumnRef} className="relative h-screen flex items-start justify-end">
+                        <div className="relative w-3/5 h-[400px]">
+                            {/* Image 1 */}
+                            <div
+                                ref={image1Ref}
+                                className="absolute inset-0 transition-opacity duration-500"
+                                style={{ opacity: 1 }}
+                            >
                                 <img
-                                    src={localDuy}
-                                    alt="Student 1"
-                                    className="w-full h-full object-cover"
+                                    src={personsData[0].image}
+                                    alt={personsData[0].name}
+                                    className="w-full h-full object-scale-down"
                                 />
                             </div>
-                            <div className="space-y-6">
-                                <p className="text-xl font-radio text-(--text) leading-relaxed">
-                                    The first days in a new country are filled with excitement and uncertainty.
-                                    Every street corner holds a new discovery, yet the weight of being far from
-                                    home creates an undercurrent of loneliness that's hard to shake.
-                                </p>
-                                <p className="text-xl font-radio text-(--text)/90 leading-relaxed">
-                                    Language barriers become more than just words – they're barriers to connection,
-                                    to understanding, to feeling truly seen in this new place you're trying to call home.
-                                </p>
+                            {/* Image 2 */}
+                            <div
+                                ref={image2Ref}
+                                className="absolute inset-0 transition-opacity duration-500"
+                                style={{ opacity: 0 }}
+                            >
+                                <img
+                                    src={personsData[1].image}
+                                    alt={personsData[1].name}
+                                    className="w-full h-full object-scale-down"
+                                />
+                            </div>
+                            {/* Image 3 */}
+                            <div
+                                ref={image3Ref}
+                                className="absolute inset-0 transition-opacity duration-500"
+                                style={{ opacity: 0 }}
+                            >
+                                <img
+                                    src={personsData[2].image}
+                                    alt={personsData[2].name}
+                                    className="w-full h-full object-scale-down"
+                                />
                             </div>
                         </div>
                     </div>
-                    <ScrollVelocity
-                        texts={['Duy']}
-                        velocity={100}
-                        className="font-anton text-7xl text-primary"
-                        numCopies={13}
-                    />
+
+                    {/* Right Column - Scrolling Text Content */}
+                    <div className="space-y-32">
+                        {/* Person 1 */}
+                        <div ref={section1Ref} className="min-h-screen w-3/5 flex flex-col justify-center">
+                            <h2 className="text-5xl font-anton text-primary mb-4">
+                                {personsData[0].name}
+                            </h2>
+                            <h3 className="text-2xl font-radio font-semibold text-(--text) mb-8">
+                                {personsData[0].title}
+                            </h3>
+                            <div className="text-lg font-radio text-(--text) leading-relaxed space-y-6">
+                                {personsData[0].description.split('\n\n').map((paragraph, index) => (
+                                    <p key={index}>{paragraph}</p>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Person 2 */}
+                        <div ref={section2Ref} className="min-h-screen w-3/5 flex flex-col justify-center">
+                            <h2 className="text-5xl font-anton text-primary mb-4">
+                                {personsData[1].name}
+                            </h2>
+                            <h3 className="text-2xl font-radio font-semibold text-(--text) mb-8">
+                                {personsData[1].title}
+                            </h3>
+                            <div className="text-lg font-radio text-(--text) leading-relaxed space-y-6">
+                                {personsData[1].description.split('\n\n').map((paragraph, index) => (
+                                    <p key={index}>{paragraph}</p>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Person 3 */}
+                        <div ref={section3Ref} className="min-h-screen w-3/5 flex flex-col justify-center">
+                            <h2 className="text-5xl font-anton text-primary mb-4">
+                                {personsData[2].name}
+                            </h2>
+                            <h3 className="text-2xl font-radio font-semibold text-(--text) mb-8">
+                                {personsData[2].title}
+                            </h3>
+                            <div className="text-lg font-radio text-(--text) leading-relaxed space-y-6">
+                                {personsData[2].description.split('\n\n').map((paragraph, index) => (
+                                    <p key={index}>{paragraph}</p>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-
-
-            {/* Second Horizontal Section: Story 2 -> Story 3 */}
-            <div ref={horizontal2Ref} className="h-screen w-full relative overflow-hidden">
-                {/* Story 2 background (same as above but acts as base) */}
-                <div className="absolute inset-0 w-full h-full flex flex-col justify-evenly items-center bg-background pt-20">
-                    <div className="container mx-auto px-8">
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                            <div className="space-y-6">
-                                <p className="text-xl font-radio text-(--text) leading-relaxed">
-                                    Slowly, the unfamiliar becomes familiar. You learn which bus to take,
-                                    where the best coffee is, how to navigate the unspoken social rules
-                                    that once felt like impenetrable mysteries.
-                                </p>
-                                <p className="text-xl font-radio text-(--text)/90 leading-relaxed">
-                                    Yet adaptation is not linear. Some days you feel confident, integrated.
-                                    Other days, a simple misunderstanding reminds you that you're still
-                                    learning how to belong in this space between two worlds.
-                                </p>
-                            </div>
-                            <div className="w-full h-[400px] overflow-hidden shadow-2xl">
-                                <img
-                                    src={localShayona}
-                                    alt="Student 2"
-                                    className="w-full h-full object-cover"
-                                />
-                            </div>
-                        </div>
-                    </div>
-                    <ScrollVelocity
-                        texts={['Shayona']}
-                        velocity={100}
-                        className="font-anton text-7xl text-primary"
-                        numCopies={7}
-                    />
-                </div>
-
-                {/* Story 3 (slides in from right) */}
-                <div ref={story3Ref} className="absolute inset-0 w-full h-full flex flex-col justify-evenly items-center bg-background pt-20">
-                    <div className="container mx-auto px-8">
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                            <div className="w-full h-[400px] overflow-hidden shadow-2xl">
-                                <img
-                                    src={localSelwyn}
-                                    alt="Student 3"
-                                    className="w-full h-full object-cover"
-                                />
-                            </div>
-                            <div className="space-y-6">
-                                <p className="text-xl font-radio text-(--text) leading-relaxed">
-                                    Home, you realize, is not just a place. It's the people who understand
-                                    your jokes in two languages, the friends who've seen you at your most
-                                    vulnerable, the community you've built one connection at a time.
-                                </p>
-                                <p className="text-xl font-radio text-(--text)/90 leading-relaxed">
-                                    You carry two homes now – the one you left and the one you're creating.
-                                    And in that duality, you find strength, resilience, and a sense of
-                                    belonging that transcends borders.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <ScrollVelocity
-                        texts={['Selwyn']}
-                        velocity={100}
-                        className="font-anton text-7xl text-primary"
-                        numCopies={11}
-                    />
-                </div>
-            </div>
-
-            {/* Vertical Section: Ending */}
-            <section className="min-h-screen w-full flex items-center justify-center bg-background from-primary/20 to-background py-20">
-                <div className="text-center px-8">
-                    <p className="text-3xl font-anton text-secondary">
-                        Every story is unique.<br />And every journey matters.
-                    </p>
-                </div>
-            </section>
         </div>
     );
 }

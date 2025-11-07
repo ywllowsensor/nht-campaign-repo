@@ -1,8 +1,10 @@
 import { HeroVideoDialogDemoTopInBottomOut } from "@/components/herovideodialogdemo"
 import { Landing } from "@/components/landing"
 import { NavBar } from "@/components/navbar"
-import { Stats } from "@/components/stats"
+import { Stories } from "@/components/stories"
 import { Burden } from "@/components/burden"
+import { AcculturativeStress } from "@/components/acculturative-stress"
+import { GameIntro } from "@/components/game-intro"
 
 
 export function HomePage() {
@@ -13,11 +15,17 @@ export function HomePage() {
             {/* landing page */}
             <Landing />
 
-            {/* stats section */}
-            <Stats />
+            {/* stories section */}
+            <Stories />
 
-            {/* burden section - invisible emotional load */}
+            {/* quotes section - invisible emotional load */}
             <Burden />
+
+            {/* acculturative stress definition */}
+            <AcculturativeStress />
+
+            {/* game introduction - comic style */}
+            <GameIntro />
 
             {/* short documentary */}
             <HeroVideoDialogDemoTopInBottomOut />
