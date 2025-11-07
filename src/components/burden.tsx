@@ -10,16 +10,12 @@ gsap.registerPlugin(ScrollTrigger);
 const burdenImage = burdenImg;
 
 const quotes = [
-    "I feel like I have to prove myself every day, that I belong here.",
-    "Sometimes I wonder if people see me as a person or just as 'the international student'.",
-    "The weight of expectations from home is crushing, but no one here understands.",
-    "I smile and nod, but inside I'm constantly translating, adapting, exhausting myself.",
-    "Every conversation feels like a test I might fail.",
-    "I'm homesick for a place I can't afford to visit.",
-    "The loneliness is louder than any language barrier.",
-    "I carry the dreams of my entire family on my shoulders.",
-    "They say 'just be yourself,' but which self? The one from home or the one I'm building here?",
-    "I'm tired of being 'exotic' instead of just being me."
+    "It does suck when food back home is 2-3 times cheaper than singapore.",
+    "They all share this very similar sense of humour… It's quite hard to laugh along.",
+    "They think we are the smartest in the country… They have very high expectations of me.",
+    "In my first semester, every single time I went home, I would cry on the plane [back].",
+    "They (local students) don't owe it to me to make me feel like [I'm] at home or anything like that.",
+    "All my family gathered in my house back home to celebrate my birthday, all I could do is to watch them through my mum’s small phone screen."
 ];
 
 export function Burden() {
@@ -66,8 +62,8 @@ export function Burden() {
                         x: 0,
                         scrollTrigger: {
                             trigger: quote,
-                            start: 'top bottom-=100',
-                            end: 'top center+=100',
+                            start: 'top bottom-=200',
+                            end: 'top center',
                             scrub: true
                         }
                     }
@@ -86,8 +82,8 @@ export function Burden() {
                             opacity: 1,
                             scrollTrigger: {
                                 trigger: quote,
-                                start: 'top bottom-=100',
-                                end: 'top center+=100',
+                                start: 'top bottom-=200',
+                                end: 'top center',
                                 scrub: true
                             }
                         }
@@ -108,8 +104,8 @@ export function Burden() {
                             opacity: 1,
                             scrollTrigger: {
                                 trigger: quote,
-                                start: 'top bottom-=100',
-                                end: 'top center+=100',
+                                start: 'top bottom-=200',
+                                end: 'top center',
                                 scrub: true
                             }
                         }
