@@ -15,7 +15,7 @@ const quotes = [
     "They think we are the smartest in the country… They have very high expectations of me.",
     "In my first semester, every single time I went home, I would cry on the plane [back].",
     "They (local students) don't owe it to me to make me feel like [I'm] at home or anything like that.",
-    "All my family gathered in my house back home to celebrate my birthday, all I could do is to watch them through my mum’s small phone screen."
+    "All my family gathered in my house back home to celebrate my birthday, [and] all I could do is to watch them through my mum’s small phone screen."
 ];
 
 export function Burden() {
