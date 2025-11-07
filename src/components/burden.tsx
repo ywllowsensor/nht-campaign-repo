@@ -206,8 +206,13 @@ export function Burden() {
                                 ref={el => {
                                     lineRefs.current[index] = el;
                                 }}
-                                className={`absolute top-1/2 h-0.5 bg-gradient-to-${isLeft ? 'r' : 'l'} from-secondary/60 to-transparent ${isLeft ? 'right-1/2 left-[5%]' : 'left-1/2 right-[5%]'}`}
-                                style={{ width: '45%' }}
+                                className={`absolute top-1/2 h-0.5 bg-gradient-to-${isLeft ? 'r' : 'l'} from-secondary/60 to-transparent ${isLeft ? 'right-1/2 mr-4' : 'left-1/2 ml-4'}`}
+                                style={{ 
+                                    width: 'calc(50% - max(55%, 100%))',
+                                    maxWidth: isLeft 
+                                        ? 'calc(50% - 45% - 2rem)' // Distance from center to start of quote box minus padding
+                                        : 'calc(50% - 45% - 2rem)'
+                                }}
                             />
                         </div>
                     );

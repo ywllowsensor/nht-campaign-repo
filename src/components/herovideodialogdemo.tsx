@@ -2,7 +2,7 @@ import { HeroVideoDialog } from "./ui/hero-video-dialog"
 
 export function HeroVideoDialogDemoTopInBottomOut() {
   return (
-    <div className="relative w-4/5 mx-auto py-10">
+    <div className="relative w-4/5 mx-auto pt-24 pb-10">
       <HeroVideoDialog
         className="block dark:hidden"
         animationStyle="left-in-right-out"

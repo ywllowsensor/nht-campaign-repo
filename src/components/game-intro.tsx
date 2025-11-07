@@ -221,13 +221,6 @@ export function GameIntro() {
             boxShadow: 'inset 0 0 0 4px white, 0 0 0 4px rgba(0,0,0,0.2)',
           }}
         >
-          {/* Comic burst decorations in corners */}
-          <div className="absolute -top-6 -left-6 text-6xl font-bold text-yellow-400 transform -rotate-12" style={{ textShadow: '3px 3px 0 #FF6B6B, -1px -1px 0 black' }}>
-            POW!
-          </div>
-          <div className="absolute -bottom-6 -right-6 text-6xl font-bold text-pink-400 transform rotate-12" style={{ textShadow: '3px 3px 0 #4ECDC4, -1px -1px 0 black' }}>
-            BAM!
-          </div>
         </div>
 
         {/* Text content */}
