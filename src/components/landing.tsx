@@ -29,7 +29,7 @@ export function Landing() {
                 overlayRef.current,
                 { opacity: 0 },
                 {
-                    opacity: 0.3,
+                    opacity: 0.9,
                     ease: 'none',
                     scrollTrigger: {
                         trigger: containerRef.current,

@@ -33,25 +33,6 @@ export function GameIntro() {
           ease: 'none',
           scrollTrigger: {
             trigger: containerRef.current,
-            start: 'top+=100vh bottom',
-            end: 'top+=100vh top',
-            scrub: 1
-          }
-        }
-      );
-
-      // Image reveals and fills screen
-      gsap.fromTo(
-        imageRef.current,
-        {
-          scale: 1.2,
-          opacity: 0
-        },
-        {
-          scale: 1,
-          opacity: 1,
-          scrollTrigger: {
-            trigger: containerRef.current,
             start: 'top bottom',
             end: 'top top',
             scrub: 1
@@ -59,7 +40,7 @@ export function GameIntro() {
         }
       );
 
-      // Comic layer 1 - halftone dots pattern
+      // Comic layer 1 - halftone dots pattern - starts after slide up is complete
       if (layer1Ref.current) {
         gsap.fromTo(
           layer1Ref.current,
@@ -71,7 +52,7 @@ export function GameIntro() {
             scrollTrigger: {
               trigger: containerRef.current,
               start: 'top top',
-              end: '+=80vh top',
+              end: 'top -20%',
               scrub: 1
             }
           }
@@ -89,8 +70,8 @@ export function GameIntro() {
             opacity: 0.4,
             scrollTrigger: {
               trigger: containerRef.current,
-              start: '+=80vh top',
-              end: '+=80vh top',
+              start: 'top -10%',
+              end: 'top -30%',
               scrub: 1
             }
           }
@@ -110,8 +91,8 @@ export function GameIntro() {
             opacity: 1,
             scrollTrigger: {
               trigger: containerRef.current,
-              start: '+=120vh top',
-              end: '+=60vh top',
+              start: 'top -20%',
+              end: 'top -40%',
               scrub: 1
             }
           }
@@ -133,8 +114,8 @@ export function GameIntro() {
           ease: 'back.out(1.7)',
           scrollTrigger: {
             trigger: containerRef.current,
-            start: '+=180vh top',
-            end: '+=50vh top',
+            start: 'top -30%',
+            end: 'top -50%',
             scrub: 1
           }
         }
@@ -157,8 +138,8 @@ export function GameIntro() {
           ease: 'elastic.out(1, 0.5)',
           scrollTrigger: {
             trigger: containerRef.current,
-            start: '+=230vh top',
-            end: '+=40vh top',
+            start: 'top -40%',
+            end: 'top -60%',
             scrub: 1
           }
         }
@@ -169,7 +150,7 @@ export function GameIntro() {
   }, []);
 
   return (
-    <div ref={containerRef} className="relative w-full z-20" style={{ height: '270vh', marginTop: '-100vh' }}>
+    <div ref={containerRef} className="relative w-full z-20" style={{ height: '150vh', marginTop: '-100vh' }}>
       {/* Sticky container that slides up */}
       <div 
         ref={stickyRef}
