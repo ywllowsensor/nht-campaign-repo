@@ -62,7 +62,7 @@ const scenariosConfig: ScenarioData[] = [
       effect: { money: 10, socialLife: -15, academics: 0, happiness: 5 },
       resultImage: scenario1StayHome, // Assuming bottom button is "stay home"
       resultText: [
-        "In an unfamiliar environment, your room formed a safe space. Yet, you could not help but wonder why your name was mentioned in your hallmates' conversation.",
+        "In an unfamiliar environment, your room formed a safe space. Even so, you could not help but wonder why your name was mentioned in your hallmates' conversation.",
         "That thought accompanied you throughout the night. Should you have accepted the invitation?"
       ]
     }
@@ -72,8 +72,8 @@ const scenariosConfig: ScenarioData[] = [
 //     descImage: scenario2Desc,
 //     choiceImage: scenario2Choice,
 //     descriptionText: [
-//       "Your neighbourhood has organised a cycling outing to East Coast Park this coming Saturday. The event is expected to last the entire day from 9am to 4pm.",
-//       "Everyone in your neighbourhood is going but you have yet to make a decision. Your main concern is that your scholarship requires you to uphold a certain academic standard and with your first midterms soon approaching..."
+//       "Your neighbourhood has organised a cycling outing to East Coast Park this coming Saturday. The event is expected to last the entire day from 9am to 6pm.",
+//       "Everyone in your neighbourhood is going but you have yet to make a decision. Your main concern is that your scholarship requires you to uphold a certain academic standard and with your final quiz soon approaching..."
 //     ],
 //     choice1: { 
 //       name: 'choice1',
@@ -82,7 +82,7 @@ const scenariosConfig: ScenarioData[] = [
 //       resultImage: scenario2Result1,
 //       resultText: [
 //         "East Coast Park was a blast! You took the opportunity to talk to more people and make new friends. Surprisingly, you found someone who loved TV remotes as much as you did!",
-//         "Additionally, you felt that it was good to get out and touch grass given that you have been cooped up in your room studying all week."]
+//         "Additionally, you felt that it was good to get out and socialise one last time given that you have been cooped up in your room studying all week."]
 //     },
 //     choice2: { 
 //       name: 'choice2',
@@ -90,8 +90,8 @@ const scenariosConfig: ScenarioData[] = [
 //       effect: { money: 5, socialLife: -10, academics: 30, happiness: -10 }, 
 //       resultImage: scenario2Result2,
 //       resultText: [
-//         "You hunkered down and locked in on Saturday while everyone was out enjoying themselves. Your handphone buzzes periodically, filled with messages from your hallmates.", 
-//         "To you, this was a necessary sacrifice that you had to make to achieve your academic goals."]
+//         "You hunkered down and locked in on Saturday while everyone was out enjoying themselves. Your handphone buzzes periodically, filled with messages from your those who attended the event.", 
+//         "Because of your academic effort, you performed well for your quiz, only at the expense of your relationship with your hallmates."]
 //     }
 //   },
 //   {
