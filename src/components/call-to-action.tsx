@@ -10,13 +10,15 @@ export function CallToAction() {
     const subtitle1Ref = useRef<HTMLParagraphElement>(null);
     const subtitle2Ref = useRef<HTMLParagraphElement>(null);
     const cardsRef = useRef<HTMLDivElement>(null);
-    const handRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        if (!containerRef.current || !titleRef.current || !subtitle1Ref.current || !subtitle2Ref.current || !cardsRef.current || !handRef.current) return;
+        if (!containerRef.current || !titleRef.current || !subtitle1Ref.current ||
+            !subtitle2Ref.current || !cardsRef.current) {
+            return;
+        }
 
         const ctx = gsap.context(() => {
-            // Title slides in from left - triggers earlier
+            // Title animation - slide from left
             gsap.fromTo(
                 titleRef.current,
                 {
@@ -26,17 +28,17 @@ export function CallToAction() {
                 {
                     x: 0,
                     opacity: 1,
-                    duration: 1,
-                    ease: 'power3.out',
+                    ease: 'none',
                     scrollTrigger: {
                         trigger: containerRef.current,
-                        start: 'top bottom',
-                        toggleActions: 'play none none reverse'
+                        start: 'top 80%',
+                        end: 'top 30%',
+                        scrub: 1
                     }
                 }
             );
 
-            // Subtitle 1 fades in
+            // Subtitle 1 animation - fade and scale
             gsap.fromTo(
                 subtitle1Ref.current,
                 {
@@ -46,18 +48,17 @@ export function CallToAction() {
                 {
                     y: 0,
                     opacity: 1,
-                    duration: 0.8,
-                    delay: 0.3,
-                    ease: 'power2.out',
+                    ease: 'none',
                     scrollTrigger: {
                         trigger: containerRef.current,
-                        start: 'top bottom',
-                        toggleActions: 'play none none reverse'
+                        start: 'top 75%',
+                        end: 'top 25%',
+                        scrub: 1
                     }
                 }
             );
 
-            // Subtitle 2 fades in
+            // Subtitle 2 animation - fade and scale
             gsap.fromTo(
                 subtitle2Ref.current,
                 {
@@ -67,52 +68,38 @@ export function CallToAction() {
                 {
                     y: 0,
                     opacity: 1,
-                    duration: 0.8,
-                    delay: 0.5,
-                    ease: 'power2.out',
+                    ease: 'none',
                     scrollTrigger: {
                         trigger: containerRef.current,
-                        start: 'top bottom',
-                        toggleActions: 'play none none reverse'
+                        start: 'top 70%',
+                        end: 'top 20%',
+                        scrub: 1
                     }
                 }
             );
 
-            // Cards stagger in from bottom
+            // Cards animation - slide up with bounce
             gsap.fromTo(
-                cardsRef.current?.children || [],
+                cardsRef.current,
                 {
-                    y: 80,
+                    y: 100,
                     opacity: 0,
-                    scale: 0.9
+                    scale: 0.8
                 },
                 {
                     y: 0,
                     opacity: 1,
                     scale: 1,
-                    duration: 0.6,
-                    stagger: 0.15,
-                    ease: 'back.out(1.5)',
+                    ease: 'none',
                     scrollTrigger: {
-                        trigger: cardsRef.current,
-                        start: 'top 85%',
-                        toggleActions: 'play none none reverse'
+                        trigger: containerRef.current,
+                        start: 'top 70%',
+                        end: 'top 20%',
+                        scrub: 1
                     }
                 }
             );
 
-            // Hand icon waves
-            gsap.to(
-                handRef.current,
-                {
-                    rotation: 20,
-                    duration: 0.3,
-                    yoyo: true,
-                    repeat: -1,
-                    ease: 'power1.inOut',
-                    transformOrigin: 'bottom center'
-                }
-            );
         }, containerRef);
 
         return () => ctx.revert();
@@ -183,7 +170,7 @@ export function CallToAction() {
                     {actions.map((action, index) => (
                         <div
                             key={index}
-                            className="group relative bg-background/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-2 border-primary/80 hover:border-primary/50"
+                            className="group relative bg-background/80 backdrop-blur-sm rounded-2xl p-8 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border-2 border-primary/80 hover:border-primary/50"
                         >
                             {/* Emoji icon with glow effect */}
                             <div className="text-6xl mb-4 transform group-hover:scale-110 transition-transform duration-300 filter group-hover:drop-shadow-[0_0_15px_rgba(255,107,107,0.5)]">
@@ -200,11 +187,11 @@ export function CallToAction() {
                 </div>
 
                 {/* Decorative quote marks */}
-                <div className="absolute top-20 left-0 text-[200px] font-anton text-background/5 leading-none select-none pointer-events-none">
-                    "
+                <div className="absolute top-20 left-0 text-[200px] font-anton text-background/5 rotate-348 leading-none select-none pointer-events-none">
+                    “
                 </div>
-                <div className="absolute top-20 right-0 text-[200px] font-anton text-background/5 leading-none select-none pointer-events-none">
-                    "
+                <div className="absolute top-20 right-0 text-[200px] font-anton text-background/5 rotate-12 leading-none select-none pointer-events-none">
+                    ”
                 </div>
             </div>
         </div>
