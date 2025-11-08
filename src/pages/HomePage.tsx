@@ -2,6 +2,7 @@ import { HeroVideoDialogDemoTopInBottomOut } from "@/components/herovideodialogd
 import { Landing } from "@/components/landing"
 import { NavBar } from "@/components/navbar"
 import { Stories } from "@/components/stories"
+import { Stories45 } from "@/components/stories45"
 import { Burden } from "@/components/burden"
 import { AcculturativeStress } from "@/components/acculturative-stress"
 import { GameIntro } from "@/components/game-intro"
@@ -18,6 +19,9 @@ export function HomePage() {
 
             {/* stories section */}
             <Stories />
+
+            {/* stories 4-5 section with swapped layout */}
+            <Stories45 />
 
             {/* quotes section - invisible emotional load */}
             <Burden />

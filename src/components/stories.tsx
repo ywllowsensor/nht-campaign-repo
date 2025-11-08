@@ -2,9 +2,9 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import localDuy from "../assets/images/duy-portrait.png";
 import localSelwyn from "../assets/images/selwyn-portrait.png";
 import localShayona from "../assets/images/shayona-portrait.png";
+import localZhihsuen from "../assets/images/zhihsuen-portrait.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,8 +12,9 @@ gsap.registerPlugin(ScrollTrigger);
 const personsData = [
     {
         id: 1,
-        name: "Shayona",
-        image: localShayona,
+        name: "Selwyn",
+        image: localSelwyn,
+
         title: "First Year Exchange Student",
         description: `Moving to a new country for studies was both exhilarating and terrifying. The first few weeks were a whirlwind of emotions - excitement about new opportunities mixed with homesickness and culture shock. Simple tasks like ordering food or navigating public transport became daily challenges that tested my confidence.
 
@@ -25,8 +26,8 @@ Despite these challenges, I slowly found my community. International student gro
     },
     {
         id: 2,
-        name: "Selwyn",
-        image: localSelwyn,
+        name: "Shayona",
+        image: localShayona,
         title: "Graduate Research Assistant",
         description: `The pressure to succeed academically while managing financial stress is constant. As an international student, I pay significantly higher tuition fees and can't work off-campus, which limits my income opportunities. Every expense needs to be carefully calculated.
 
@@ -34,8 +35,8 @@ Beyond finances, there's the invisible burden of representing my entire country 
     },
     {
         id: 3,
-        name: "Duy",
-        image: localDuy,
+        name: "Zhi Hsuen",
+        image: localZhihsuen,
         title: "Senior International Student",
         description: `After three years here, I've found my rhythm, but the question of belonging still lingers. I'm no longer quite the same person I was when I left home, yet I don't fully belong here either. This sense of being between two worlds is both liberating and isolating.
 
