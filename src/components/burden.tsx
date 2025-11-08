@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import burdenImg from "../assets/images/cover-page-img.png";
+import burdenImg from "../assets/images/burden-bg-img.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -138,7 +138,7 @@ export function Burden() {
                     className="relative z-10 text-5xl md:text-7xl lg:text-8xl font-anton font-bold text-primary text-center px-8 leading-tight"
                     style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.7)' }}
                 >
-                    the burden that we don't understand
+                    The burden that we don't see
                 </h2>
             </div>
 

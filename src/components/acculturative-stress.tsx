@@ -3,7 +3,7 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 // Replace with your actual image path
-import stressImg from "../assets/images/cover-page-img.png";
+import stressImg from "../assets/images/zoom-out-bg-img.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -37,18 +37,18 @@ export function AcculturativeStress() {
         }
       );
 
-      // Black overlay fades in after zoom completes - smoother
+      // Black overlay fades in with delay after zoom completes
       gsap.fromTo(
         overlayRef.current,
         {
           opacity: 0
         },
         {
-          opacity: 0.7,
+          opacity: 0.5,
           scrollTrigger: {
             trigger: containerRef.current,
-            start: '+=100vh top',
-            end: '+=100vh top',
+            start: '+=140vh top',
+            end: '+=160vh top',
             scrub: 1
           }
         }
@@ -67,35 +67,20 @@ export function AcculturativeStress() {
           ease: 'power2.out',
           scrollTrigger: {
             trigger: containerRef.current,
-            start: '+=100vh top',
+            start: '+=140vh top',
             end: '+=80vh top',
             scrub: 1
           }
         }
       );
 
-      // Text exits upwards when GameIntro covers this section
-      gsap.to(
-        textRef.current,
-        {
-          y: '-100vh',
-          opacity: 0,
-          ease: 'power2.in',
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: 'bottom bottom',
-            end: 'bottom top',
-            scrub: 1
-          }
-        }
-      );
     }, containerRef);
 
     return () => ctx.revert();
   }, []);
 
   return (
-    <div ref={containerRef} className="relative w-full" style={{ height: '180vh' }}>
+    <div ref={containerRef} className="relative w-full" style={{ height: '200vh' }}>
       {/* Image section */}
       <div className="sticky top-0 w-full h-screen overflow-hidden">
         <div
