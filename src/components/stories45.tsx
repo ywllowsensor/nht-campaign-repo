@@ -3,7 +3,6 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import localAashna from "../assets/images/aashna-portrait.png";
-import localZhihsuen from "../assets/images/zhihsuen-portrait.png";
 import localDuy from "../assets/images/duy-portrait.png";
 
 gsap.registerPlugin(ScrollTrigger);

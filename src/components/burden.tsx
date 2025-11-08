@@ -10,7 +10,7 @@ gsap.registerPlugin(ScrollTrigger);
 const burdenImage = burdenImg;
 
 const quotes = [
-    "It does suck when food back home is 2-3 times cheaper than singapore.",
+    "It does suck when food back home is 2-3 times cheaper than Singapore.",
     "They all share this very similar sense of humour… It's quite hard to laugh along.",
     "They think we are the smartest in the country… They have very high expectations of me.",
     "In my first semester, every single time I went home, I would cry on the plane [back].",
