@@ -6,6 +6,11 @@ import scenario1Choice from '../assets/scenarios/1/scenario1-choice.jpg';
 import scenario1StayHome from '../assets/scenarios/1/scenario1-choice-stayhome.jpg';
 import scenario1Supper from '../assets/scenarios/1/scenario1-choice-supper.jpg';
 
+import scenario3Desc from '../assets/scenarios/3/scenario3-desc.jpg';
+import scenario3Choice from '../assets/scenarios/3/scenario3-choice.jpg';
+import scenario3StayHome from '../assets/scenarios/3/scenario3-choice-stayhome.jpg';
+import scenario3Cycling from '../assets/scenarios/3/scenario3-choice-cycling.jpg';
+
 // Types
 interface XPBars {
   money: number;
@@ -66,57 +71,85 @@ const scenariosConfig: ScenarioData[] = [
         "That thought accompanied you throughout the night. Should you have accepted the invitation?"
       ]
     }
+  },
+  {
+    id: 3,
+    descImage: scenario3Desc,
+    choiceImage: scenario3Choice,
+    descriptionText: [
+      "Your neighbourhood has organised a cycling outing to East Coast Park this coming Saturday. The event is expected to last the entire day from 9am to 6pm.",
+      "Everyone in your neighbourhood is going but you have yet to make a decision. Your main concern is that your scholarship requires you to uphold a certain academic standard and with your final quiz soon approaching..."
+    ],
+    choice1: {
+      name: 'choice1',
+      buttonText: 'JOIN CYCLING',
+      effect: { money: -5, socialLife: 15, academics: -15, happiness: 10 },
+      resultImage: scenario3Cycling,
+      resultText: [
+        "East Coast Park was a blast! You took the opportunity to talk to more people and make new friends. Surprisingly, you found someone who loved TV remotes as much as you did!",
+        "Additionally, you felt that it was good to get out and socialise one last time given that you have been cooped up in your room studying all week."]
+    },
+    choice2: {
+      name: 'choice2',
+      buttonText: 'REJECT THE INVITE',
+      effect: { money: 5, socialLife: -10, academics: 30, happiness: -10 },
+      resultImage: scenario3StayHome,
+      resultText: [
+        "You hunkered down and locked in on Saturday while everyone was out enjoying themselves. Your handphone buzzes periodically, filled with messages from your those who attended the event.",
+        "Because of your academic effort, you performed well for your quiz, only at the expense of your relationship with your hallmates."]
+    }
   }
-//   {
-//     id: 2,
-//     descImage: scenario2Desc,
-//     choiceImage: scenario2Choice,
-//     descriptionText: [
-//       "Your neighbourhood has organised a cycling outing to East Coast Park this coming Saturday. The event is expected to last the entire day from 9am to 6pm.",
-//       "Everyone in your neighbourhood is going but you have yet to make a decision. Your main concern is that your scholarship requires you to uphold a certain academic standard and with your final quiz soon approaching..."
-//     ],
-//     choice1: { 
-//       name: 'choice1',
-//       buttonText: 'JOIN CYCLING',
-//       effect: { money: -5, socialLife: 15, academics: -15, happiness: 10 }, 
-//       resultImage: scenario2Result1,
-//       resultText: [
-//         "East Coast Park was a blast! You took the opportunity to talk to more people and make new friends. Surprisingly, you found someone who loved TV remotes as much as you did!",
-//         "Additionally, you felt that it was good to get out and socialise one last time given that you have been cooped up in your room studying all week."]
-//     },
-//     choice2: { 
-//       name: 'choice2',
-//       buttonText: 'REJECT THE INVITE',
-//       effect: { money: 5, socialLife: -10, academics: 30, happiness: -10 }, 
-//       resultImage: scenario2Result2,
-//       resultText: [
-//         "You hunkered down and locked in on Saturday while everyone was out enjoying themselves. Your handphone buzzes periodically, filled with messages from your those who attended the event.", 
-//         "Because of your academic effort, you performed well for your quiz, only at the expense of your relationship with your hallmates."]
-//     }
-//   },
-//   {
-//     id: 3,
-//     descImage: scenario3Desc,
-//     choiceImage: scenario3Choice,
-//     descriptionText: [
-//       "After cleaning up your room, you felt that something was amiss. Even though everything was in place, your room still ellicits a sense of emptiness.",
-//       "Ahah! Due to space constraints, you were not able to bring with you your personal items from back home. That's why your room feels incomplete. But how should you fill that gap..."
-//     ],
-//     choice1: { 
-//       name: 'choice1',
-//       buttonText: 'BUY ROOM DECORATIONS',
-//       effect: { money: -15, socialLife: 0, academics: 0, happiness: 20 }, 
-//       resultImage: scenario3Result1,
-//       resultText: ["You have arrived back in your room with 2 reusable bags full of items from Clementi Mall.", "'That poster should definitely go up there, this little plant can sit by window, and let me put this frog down here...'", "Half a day later, your room is finally decorated, embellished with items that remind you of home."]
-//     },
-//     choice2: { 
-//       name: 'choice2',
-//       buttonText: 'SAVE MONEY',
-//       effect: { money: 20, socialLife: 0, academics: 0, happiness: -20 }, 
-//       resultImage: scenario3Result2,
-//       resultText: ["'The emptiness of my room gets to me at least my wallet isn't empty,' you say to yourself.", "Can you put a price on the feeling of home? How do you make sense of the spacious spaces around you?"]
-//     }
-//   }
+
+  //   {
+  //     id: 2,
+  //     descImage: scenario2Desc,
+  //     choiceImage: scenario2Choice,
+  //     descriptionText: [
+  //       "After cleaning up your room, you felt that something was amiss. Even though everything was in place, your room still ellicits a sense of emptiness.",
+  //       "Ahah! Due to space constraints, you were not able to bring with you your personal items from back home. That's why your room feels incomplete. But how should you fill that gap..."
+  //     ],
+  //     choice1: { 
+  //       name: 'choice1',
+  //       buttonText: 'BUY ROOM DECORATIONS',
+  //       effect: { money: -15, socialLife: 0, academics: 0, happiness: 20 }, 
+  //       resultImage: scenario2Result1,
+  //       resultText: ["You have arrived back in your room with 2 reusable bags full of items from Clementi Mall.", "'That poster should definitely go up there, this little plant can sit by window, and let me put this frog down here...'", "Half a day later, your room is finally decorated, embellished with items that remind you of home."]
+  //     },
+  //     choice2: { 
+  //       name: 'choice2',
+  //       buttonText: 'SAVE MONEY',
+  //       effect: { money: 20, socialLife: 0, academics: 0, happiness: -20 }, 
+  //       resultImage: scenario2Result2,
+  //       resultText: ["'The emptiness of my room gets to me at least my wallet isn't empty,' you think to yourself.", "Can you put a price on the feeling of home? How do you make sense of the spacious spaces around you?"]
+  //     }
+  //   },
+  //   {
+  //     id: 3,
+  //     descImage: scenario3Desc,
+  //     choiceImage: scenario3Choice,
+  //     descriptionText: [
+  //       "Your neighbourhood has organised a cycling outing to East Coast Park this coming Saturday. The event is expected to last the entire day from 9am to 6pm.",
+  //       "Everyone in your neighbourhood is going but you have yet to make a decision. Your main concern is that your scholarship requires you to uphold a certain academic standard and with your final quiz soon approaching..."
+  //     ],
+  //     choice1: { 
+  //       name: 'choice1',
+  //       buttonText: 'JOIN CYCLING',
+  //       effect: { money: -5, socialLife: 15, academics: -15, happiness: 10 }, 
+  //       resultImage: scenario3Cycling,
+  //       resultText: [
+  //         "East Coast Park was a blast! You took the opportunity to talk to more people and make new friends. Surprisingly, you found someone who loved TV remotes as much as you did!",
+  //         "Additionally, you felt that it was good to get out and socialise one last time given that you have been cooped up in your room studying all week."]
+  //     },
+  //     choice2: { 
+  //       name: 'choice2',
+  //       buttonText: 'REJECT THE INVITE',
+  //       effect: { money: 5, socialLife: -10, academics: 30, happiness: -10 }, 
+  //       resultImage: scenario3StayHome,
+  //       resultText: [
+  //         "You hunkered down and locked in on Saturday while everyone was out enjoying themselves. Your handphone buzzes periodically, filled with messages from your those who attended the event.", 
+  //         "Because of your academic effort, you performed well for your quiz, only at the expense of your relationship with your hallmates."]
+  //     }
+  //   }
 
 ];
 
@@ -180,7 +213,7 @@ export function DecisionGame() {
       {gameStage === 'title' && (
         <div className="w-full h-screen flex flex-col items-center justify-center p-8 md:p-12 bg-linear-to-br from-purple-600 via-pink-500 to-orange-400 relative overflow-hidden">
           {/* Polka dots pattern overlay */}
-          <div 
+          <div
             className="absolute inset-0 opacity-20"
             style={{
               backgroundImage: `radial-gradient(circle, white 2px, transparent 2px)`,
@@ -212,7 +245,7 @@ export function DecisionGame() {
           >
             Walk Their Path
           </h1>
-          
+
           <p className="relative z-10 text-xl md:text-2xl font-radio font-bold text-black text-center mb-12 bg-white px-10 py-5 transform -rotate-1 border-4 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] max-w-3xl">
             <span className='underline'>An Interactive Decision-Based Experience</span>
             <br />
@@ -238,7 +271,7 @@ export function DecisionGame() {
       {gameStage === 'desc' && currentScenario && (
         <div className="w-full h-screen relative overflow-hidden">
           {/* Blurred background */}
-          <div 
+          <div
             className="absolute inset-0 bg-cover bg-center"
             style={{
               backgroundImage: `url(${currentScenario.descImage})`,
@@ -246,21 +279,21 @@ export function DecisionGame() {
               transform: 'scale(1.1)'
             }}
           />
-          
+
           {/* Dark overlay */}
           <div className="absolute inset-0 bg-black/40" />
-          
+
           {/* Main content */}
           <div className="relative w-full h-full flex items-center justify-between gap-8 pt-8 px-8 md:px-16">
             {/* Image on left - rotated slightly */}
             <div className="transform -rotate-2 shadow-[12px_12px_0_0_rgba(255,255,255,0.3)] shrink-0">
-              <img 
+              <img
                 src={currentScenario.descImage}
                 alt="Scenario description"
                 className="max-h-[75vh] w-auto object-contain"
               />
             </div>
-            
+
             {/* Text space on right */}
             <div className="group flex-1 max-w-2xl bg-white/95 backdrop-blur-sm rounded-2xl border-4 border-black shadow-[8px_8px_0_0_rgba(0,0,0,0.8)] p-8 transform rotate-1 transition-all duration-300 cursor-pointer hover:scale-105">
               <h2 className="text-3xl md:text-4xl font-anton font-bold text-black mb-4 transform -rotate-1">
@@ -273,10 +306,10 @@ export function DecisionGame() {
               </div>
             </div>
           </div>
-          
+
           {/* Persistent XP Bar - Top Right */}
           <PersistentXPBar xp={xp} />
-          
+
           {/* Comic-style NEXT arrow button - bottom right */}
           <button
             onClick={() => setGameStage('choice')}
@@ -291,7 +324,7 @@ export function DecisionGame() {
       {gameStage === 'choice' && currentScenario && (
         <div className="w-full h-screen relative overflow-hidden">
           {/* Blurred background */}
-          <div 
+          <div
             className="absolute inset-0 bg-cover bg-center"
             style={{
               backgroundImage: `url(${currentScenario.choiceImage})`,
@@ -299,21 +332,21 @@ export function DecisionGame() {
               transform: 'scale(1.1)'
             }}
           />
-          
+
           {/* Dark overlay */}
           <div className="absolute inset-0 bg-black/40" />
-          
+
           {/* Main content */}
           <div className="relative w-full h-full flex items-center justify-between pt-8 px-8 md:px-16">
             {/* Image on left - rotated slightly */}
             <div className="transform -rotate-1 shadow-[12px_12px_0_0_rgba(255,255,255,0.3)]">
-              <img 
+              <img
                 src={currentScenario.choiceImage}
                 alt="Make your choice"
                 className="max-h-[80vh] w-auto object-contain"
               />
             </div>
-            
+
             {/* Choice buttons on right side */}
             <div className="flex flex-col gap-6 mr-8 md:mr-16">
               <button
@@ -322,7 +355,7 @@ export function DecisionGame() {
               >
                 {currentScenario.choice1.buttonText}
               </button>
-              
+
               <button
                 onClick={() => handleChoice(currentScenario.choice2)}
                 className="px-12 py-6 text-2xl md:text-3xl font-anton font-bold text-white bg-linear-to-r from-pink-400 to-pink-600 border-4 border-white shadow-[6px_6px_0_0_rgba(255,255,255,0.6)] transform -rotate-2 transition-all duration-200 hover:scale-110 hover:shadow-[8px_8px_0_0_rgba(255,255,255,0.8)] hover:rotate-1"
@@ -331,7 +364,7 @@ export function DecisionGame() {
               </button>
             </div>
           </div>
-          
+
           {/* Persistent XP Bar - Top Right */}
           <PersistentXPBar xp={xp} />
         </div>
@@ -341,7 +374,7 @@ export function DecisionGame() {
       {gameStage === 'result' && selectedChoice && (
         <div className="w-full h-screen relative overflow-hidden">
           {/* Blurred background */}
-          <div 
+          <div
             className="absolute inset-0 bg-cover bg-center"
             style={{
               backgroundImage: `url(${selectedChoice.resultImage})`,
@@ -349,21 +382,21 @@ export function DecisionGame() {
               transform: 'scale(1.1)'
             }}
           />
-          
+
           {/* Dark overlay */}
           <div className="absolute inset-0 bg-black/40" />
-          
+
           {/* Main content */}
           <div className="relative w-full h-full flex items-center justify-between gap-8 pt-8 px-8 md:px-16">
             {/* Image on left - rotated slightly */}
             <div className="transform rotate-1 shadow-[12px_12px_0_0_rgba(255,255,255,0.3)] shrink-0">
-              <img 
+              <img
                 src={selectedChoice.resultImage}
                 alt="Result"
                 className="max-h-[75vh] w-auto object-contain"
               />
             </div>
-            
+
             {/* Text space on right */}
             <div className="group flex-1 max-w-2xl bg-white/95 backdrop-blur-sm rounded-2xl border-4 border-black shadow-[8px_8px_0_0_rgba(0,0,0,0.8)] p-8 transform -rotate-1 transition-all duration-300 cursor-pointer hover:scale-105">
               <h2 className="text-3xl md:text-4xl font-anton font-bold text-black mb-4 transform rotate-1">
@@ -376,7 +409,7 @@ export function DecisionGame() {
               </div>
             </div>
           </div>
-          
+
           {/* Persistent XP Bar - Top Right */}
           <PersistentXPBar xp={xp} />
 
@@ -394,7 +427,7 @@ export function DecisionGame() {
       {gameStage === 'finalStats' && (
         <div className="w-full h-screen flex flex-col items-center justify-center p-6 md:p-8 bg-background relative overflow-y-auto">
           {/* Polka dots pattern overlay */}
-          <div 
+          <div
             className="absolute inset-0 opacity-10"
             style={{
               backgroundImage: `radial-gradient(circle, currentColor 2px, transparent 2px)`,
@@ -441,7 +474,7 @@ export function DecisionGame() {
       {gameStage === 'conclusion' && (
         <div className="w-full h-screen flex flex-col items-center justify-center p-6 md:p-8 bg-background relative overflow-y-auto">
           {/* Polka dots pattern overlay */}
-          <div 
+          <div
             className="absolute inset-0 opacity-10"
             style={{
               backgroundImage: `radial-gradient(circle, currentColor 2px, transparent 2px)`,
@@ -464,7 +497,7 @@ export function DecisionGame() {
             <p className="text-base md:text-lg font-bold text-black text-center bg-white px-6 py-6 transform rotate-1 border-4 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)]">
               The reality is that international students face these decisions <span className="text-red-600">every single day</span>. With every decision, sacrifices are made and trade-offs are incurred.
             </p>
-            
+
             <p className="text-base md:text-lg font-bold text-black text-center bg-white px-6 py-6 transform -rotate-1 border-4 border-black shadow-[4px_4px_0_0_rgba(0,0,0,1)]">
               Balancing finances, a social life, academics, and personal happiness isn't easy when you're far from home.
             </p>
@@ -503,14 +536,14 @@ function PersistentXPBar({ xp }: PersistentXPBarProps) {
   return (
     <div className="absolute top-4 right-4 bg-yellow-300 border-4 border-white rounded-xl p-3 shadow-[6px_6px_0_0_rgba(255,255,255,0.5)] space-y-2 z-30 transform rotate-2">
       {/* Halftone pattern */}
-      <div 
+      <div
         className="absolute inset-0 opacity-5 pointer-events-none rounded-xl"
         style={{
           backgroundImage: `radial-gradient(circle, rgba(0,0,0,0.8) 1px, transparent 1px)`,
           backgroundSize: '4px 4px'
         }}
       />
-      
+
       <h3 className="text-sm font-anton font-bold text-black text-center mb-1 relative z-10" style={{ textShadow: '1px 1px 0 rgba(255,255,255,0.5)' }}>
         STATUS
       </h3>
@@ -560,7 +593,7 @@ function ComicXPBar({ label, value, color }: ComicXPBarProps) {
       </div>
       <div className="w-full h-8 bg-gray-800 rounded-full border-4 border-black shadow-[4px_4px_0_0_rgba(0,0,0,0.5)] overflow-hidden relative">
         {/* Halftone pattern overlay */}
-        <div 
+        <div
           className="absolute inset-0 opacity-20 pointer-events-none z-10"
           style={{
             backgroundImage: `radial-gradient(circle, rgba(0,0,0,0.8) 1px, transparent 1px)`,
