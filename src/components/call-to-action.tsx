@@ -187,10 +187,16 @@ export function CallToAction() {
                 </div>
 
                 {/* Decorative quote marks */}
-                <div className="absolute top-20 left-0 text-[200px] font-anton text-background/5 rotate-348 leading-none select-none pointer-events-none">
+                <div className="absolute top-20 left-0 text-[200px] font-anton text-(--text) rotate-348 leading-none select-none pointer-events-none"
+                    style={{
+                        textShadow: '3px 3px 0 rgba(0,0,0,0.1)'
+                    }}>
                     “
                 </div>
-                <div className="absolute top-20 right-0 text-[200px] font-anton text-background/5 rotate-12 leading-none select-none pointer-events-none">
+                <div className="absolute top-20 right-0 text-[200px] font-anton text-(--text) rotate-12 leading-none select-none pointer-events-none"
+                    style={{
+                        textShadow: '3px 3px 0 rgba(0,0,0,0.1)'
+                    }}>
                     ”
                 </div>
             </div>

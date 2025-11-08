@@ -150,7 +150,7 @@ export function GameIntro() {
   }, []);
 
   return (
-    <div ref={containerRef} className="relative w-full z-20" style={{ height: '150vh', marginTop: '-100vh' }}>
+    <div ref={containerRef} className="relative w-full z-20" style={{ height: '180vh', marginTop: '-100vh' }}>
       {/* Sticky container that slides up */}
       <div 
         ref={stickyRef}
@@ -242,84 +242,3 @@ export function GameIntro() {
     </div>
   );
 }
-
-// export function GameIntroMultiMask() {
-//   const layer1MaskRef = useRef<SVGCircleElement>(null);
-//   const layer2MaskRef = useRef<SVGPolygonElement>(null);
-//   const layer3MaskRef = useRef<SVGRectElement>(null);
-
-//   useEffect(() => {
-//     const ctx = gsap.context(() => {
-//       // Layer 1: Circular wipe from center
-//       if (layer1MaskRef.current) {
-//         gsap.fromTo(
-//           layer1MaskRef.current,
-//           { attr: { r: 0 } },
-//           {
-//             attr: { r: '150%' },
-//             scrollTrigger: {
-//               trigger: containerRef.current,
-//               start: 'top top',
-//               end: '+=100vh top',
-//               scrub: 1
-//             }
-//           }
-//         );
-//       }
-
-//       // Layer 2: Star burst pattern
-//       if (layer2MaskRef.current) {
-//         gsap.fromTo(
-//           layer2MaskRef.current,
-//           { scale: 0, transformOrigin: '50% 50%' },
-//           {
-//             scale: 3,
-//             scrollTrigger: {
-//               trigger: containerRef.current,
-//               start: '+=100vh top',
-//               end: '+=100vh top',
-//               scrub: 1
-//             }
-//           }
-//         );
-//       }
-//     }, containerRef);
-
-//     return () => ctx.revert();
-//   }, []);
-
-//   return (
-//     <div ref={containerRef} className="relative w-full" style={{ height: '400vh' }}>
-//       <div className="sticky top-0 w-full h-screen overflow-hidden">
-//         <svg width="100%" height="100%" className="absolute inset-0">
-//           <defs>
-//             {/* Mask 1: Circle reveal */}
-//             <mask id="mask1">
-//               <circle ref={layer1MaskRef} cx="50%" cy="50%" r="0" fill="white" />
-//             </mask>
-
-//             {/* Mask 2: Star burst */}
-//             <mask id="mask2">
-//               <polygon
-//                 ref={layer2MaskRef}
-//                 points="50,0 61,35 98,35 68,57 79,91 50,70 21,91 32,57 2,35 39,35"
-//                 fill="white"
-//                 transform="translate(400, 300)"
-//               />
-//             </mask>
-
-//             {/* Mask 3: Comic frame reveal */}
-//             <mask id="mask3">
-//               <rect ref={layer3MaskRef} x="5%" y="5%" width="90%" height="90%" fill="white" />
-//             </mask>
-//           </defs>
-
-//           {/* Layered images with different masks */}
-//           <image href="layer1.jpg" width="100%" height="100%" mask="url(#mask1)" />
-//           <image href="layer2.jpg" width="100%" height="100%" mask="url(#mask2)" />
-//           <image href="layer3.jpg" width="100%" height="100%" mask="url(#mask3)" />
-//         </svg>
-//       </div>
-//     </div>
-//   );
-// }

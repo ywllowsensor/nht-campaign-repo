@@ -7,7 +7,7 @@ import stressImg from "../assets/images/cover-page-img.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const acculturativeStressDefinition = "'Acculturative stress refers to stress induced by the adaptation or acculturation process due to a change in cultural environment where a person has to make a number of personal, social, and environmental change.'";
+const acculturativeStressDefinition = "“Acculturative stress refers to stress induced by the adaptation or acculturation process due to a change in cultural environment where a person has to make a number of personal, social, and environmental change.”";
 
 export function AcculturativeStress() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -122,11 +122,14 @@ export function AcculturativeStress() {
           className="absolute inset-0 flex items-center justify-center px-8 md:px-16 lg:px-24 z-10"
         >
           <div className="max-w-4xl">
-            <h3 className="text-4xl md:text-5xl lg:text-6xl font-anton font-bold text-primary mb-6 text-center">
-              Acculturative Stress
+            <h3 className="text-xl md:text-2xl lg:text-3xl font-anton font-bold text-primary mb-6 text-center">
+              This is what acculturative stress looks like in everyday life
             </h3>
-            <p className="text-xl text-(--text) md:text-2xl lg:text-3xl font-radio font-light text-center">
+            <p className="text-3xl text-(--text) md:text-4xl lg:text-5xl font-anton font-light text-center">
               {acculturativeStressDefinition}
+            </p>
+            <p className='text-md text-(--text)/70 font-anton text-right'>
+              ~ Nasirudeen et al., 2014
             </p>
           </div>
         </div>
