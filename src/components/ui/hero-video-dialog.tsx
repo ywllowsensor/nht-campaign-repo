@@ -127,10 +127,10 @@ export function HeroVideoDialog({
               transition={{ type: "spring", damping: 30, stiffness: 300 }}
               className="relative mx-4 aspect-video w-full max-w-4xl md:mx-0"
             >
-              <motion.button className="absolute -top-16 right-0 rounded-full bg-neutral-800/50 p-2 text-xl text-primary ring-1 hover:brightness-70 backdrop-blur-md dark:bg-neutral-100/50 dark:text-black">
+              <motion.button className="absolute -top-16 right-0 rounded-full bg-neutral-800/50 p-2 text-xl text-background/50 ring-1 hover:brightness-70 backdrop-blur-md dark:bg-neutral-100/50 dark:text-black">
                 <XIcon className="size-5 text-white" />
               </motion.button>
-              <div className="relative isolate z-1 size-full overflow-hidden rounded-2xl border-2 border-primary">
+              <div className="relative isolate z-1 size-full overflow-hidden rounded-2xl border-2 border-background/50 bg-black/80 shadow-lg shadow-black/50">
                 <iframe
                   src={videoSrc}
                   title="Hero Video player"

@@ -16,7 +16,10 @@ export function SVGMaskEffectDemo() {
                 className="inline-block h-[1em]"
               />
             </span>
-            nal Students: {" "}
+            nal Students
+            <br />
+            <span className="text-3xl">{" "}In NUS:</span>
+            {" "}
             <span className="text-primary">Finding Their Place</span>
           </p>
         }
@@ -25,8 +28,8 @@ export function SVGMaskEffectDemo() {
         <p className="text-7xl font-anton font-bold text-start text-(--text)"
           style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.7)' }}>
           The {" "}
-          <span className="text-primary">unseen cost</span>
-          {" "}  of belonging
+          <span className="text-primary">Unseen Cost</span>
+          {" "}  Of Belonging
         </p>
       </MaskContainer>
     </div>
