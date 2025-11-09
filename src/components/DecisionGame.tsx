@@ -87,15 +87,15 @@ const scenariosConfig: ScenarioData[] = [
       resultImage: scenario3Cycling,
       resultText: [
         "East Coast Park was a blast! You took the opportunity to talk to more people and make new friends. Surprisingly, you found someone who loved TV remotes as much as you did!",
-        "Additionally, you felt that it was good to get out and socialise one last time given that you have been cooped up in your room studying all week."]
+        "Additionally, you felt that it was good to get out and socialise one last time, given that you have been cooped up in your room studying all week."]
     },
     choice2: {
       name: 'choice2',
-      buttonText: 'REJECT THE INVITE',
+      buttonText: 'REJECT THE INVITE AND STUDY',
       effect: { money: 5, socialLife: -10, academics: 30, happiness: -10 },
       resultImage: scenario3StayHome,
       resultText: [
-        "You hunkered down and locked in on Saturday while everyone was out enjoying themselves. Your handphone buzzes periodically, filled with messages from your those who attended the event.",
+        "You hunkered down and locked in on Saturday while everyone was out enjoying themselves. Your handphone buzzes periodically, filled with messages from those who attended the event.",
         "Because of your academic effort, you performed well for your quiz, only at the expense of your relationship with your hallmates."]
     }
   }
@@ -123,33 +123,6 @@ const scenariosConfig: ScenarioData[] = [
   //       resultText: ["'The emptiness of my room gets to me at least my wallet isn't empty,' you think to yourself.", "Can you put a price on the feeling of home? How do you make sense of the spacious spaces around you?"]
   //     }
   //   },
-  //   {
-  //     id: 3,
-  //     descImage: scenario3Desc,
-  //     choiceImage: scenario3Choice,
-  //     descriptionText: [
-  //       "Your neighbourhood has organised a cycling outing to East Coast Park this coming Saturday. The event is expected to last the entire day from 9am to 6pm.",
-  //       "Everyone in your neighbourhood is going but you have yet to make a decision. Your main concern is that your scholarship requires you to uphold a certain academic standard and with your final quiz soon approaching..."
-  //     ],
-  //     choice1: { 
-  //       name: 'choice1',
-  //       buttonText: 'JOIN CYCLING',
-  //       effect: { money: -5, socialLife: 15, academics: -15, happiness: 10 }, 
-  //       resultImage: scenario3Cycling,
-  //       resultText: [
-  //         "East Coast Park was a blast! You took the opportunity to talk to more people and make new friends. Surprisingly, you found someone who loved TV remotes as much as you did!",
-  //         "Additionally, you felt that it was good to get out and socialise one last time given that you have been cooped up in your room studying all week."]
-  //     },
-  //     choice2: { 
-  //       name: 'choice2',
-  //       buttonText: 'REJECT THE INVITE',
-  //       effect: { money: 5, socialLife: -10, academics: 30, happiness: -10 }, 
-  //       resultImage: scenario3StayHome,
-  //       resultText: [
-  //         "You hunkered down and locked in on Saturday while everyone was out enjoying themselves. Your handphone buzzes periodically, filled with messages from your those who attended the event.", 
-  //         "Because of your academic effort, you performed well for your quiz, only at the expense of your relationship with your hallmates."]
-  //     }
-  //   }
 
 ];
 

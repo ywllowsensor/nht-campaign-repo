@@ -7,7 +7,7 @@ import stressImg from "../assets/images/zoom-out-bg-img.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const acculturativeStressDefinition = "“Acculturative stress refers to stress induced by the adaptation or acculturation process due to a change in cultural environment where a person has to make a number of personal, social, and environmental change.”";
+const acculturativeStressDefinition = "“Acculturative stress refers to stress induced by the adaptation or acculturation process due to a change in cultural environment where a person has to make a number of personal, social, and environmental changes.”";
 
 export function AcculturativeStress() {
   const containerRef = useRef<HTMLDivElement>(null);

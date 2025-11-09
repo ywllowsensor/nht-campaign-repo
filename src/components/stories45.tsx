@@ -13,7 +13,7 @@ const personsData = [
         id: 4,
         name: "Aashna",
         image: localAashna,
-        title: "PhD Candidate",
+        title: "95 Days",
         description: `The journey of pursuing a PhD as an international student comes with unique challenges that extend far beyond the academic realm. The isolation of research work is amplified when you're thousands of miles away from your support system, and the pressure to publish and perform is constant.
 
 Time zone differences mean that when I need emotional support the most, my family and friends back home are often asleep. Video calls can only do so much, and there are moments when I desperately miss the comfort of physical presence and familiar surroundings.
@@ -28,7 +28,7 @@ Yet, the international student community in my department has become my chosen f
         id: 5,
         name: "Duy",
         image: localDuy,
-        title: "Masters Student",
+        title: "2201 Days",
         description: `Navigating professional networking as an international student adds another layer of complexity to an already challenging graduate experience. Career fairs and networking events can feel intimidating when you're constantly aware of visa restrictions and sponsorship requirements.
 
 The job search process is exhausting. Every application comes with the anxiety of whether companies will be willing to sponsor a work visa. Rejections feel more personal when you know it's not just about your qualifications, but also about your international status.

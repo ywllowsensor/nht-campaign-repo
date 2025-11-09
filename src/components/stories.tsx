@@ -14,8 +14,7 @@ const personsData = [
         id: 1,
         name: "Selwyn",
         image: localSelwyn,
-
-        title: "First Year Exchange Student",
+        title: "461 Days",
         description: `Moving to a new country for studies was both exhilarating and terrifying. The first few weeks were a whirlwind of emotions - excitement about new opportunities mixed with homesickness and culture shock. Simple tasks like ordering food or navigating public transport became daily challenges that tested my confidence.
 
 Language barriers made everything more difficult. Even though I studied English for years, understanding local accents and slang was completely different from textbook learning. I found myself nodding along to conversations I didn't fully understand, too embarrassed to ask people to repeat themselves.
@@ -28,7 +27,7 @@ Despite these challenges, I slowly found my community. International student gro
         id: 2,
         name: "Shayona",
         image: localShayona,
-        title: "Graduate Research Assistant",
+        title: "97 Days",
         description: `The pressure to succeed academically while managing financial stress is constant. As an international student, I pay significantly higher tuition fees and can't work off-campus, which limits my income opportunities. Every expense needs to be carefully calculated.
 
 Beyond finances, there's the invisible burden of representing my entire country and culture. People often make assumptions or ask me to speak for all people from my background, as if I'm a cultural ambassador rather than an individual student. This weight of representation is exhausting.`
@@ -37,7 +36,7 @@ Beyond finances, there's the invisible burden of representing my entire country 
         id: 3,
         name: "Zhi Hsuen",
         image: localZhihsuen,
-        title: "Senior International Student",
+        title: "456 Days",
         description: `After three years here, I've found my rhythm, but the question of belonging still lingers. I'm no longer quite the same person I was when I left home, yet I don't fully belong here either. This sense of being between two worlds is both liberating and isolating.
 
 I've learned to embrace my hybrid identity - taking the best from both cultures and creating something uniquely mine. My friend group is wonderfully diverse, and we've built our own little international community where everyone's background is celebrated.
