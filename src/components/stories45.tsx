@@ -11,7 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 const personsData = [
     {
         id: 4,
-        name: "Aashna",
+        name: "Aashna 🇮🇳",
         image: localAashna,
         title: "95 Days",
         description: `The journey of pursuing a PhD as an international student comes with unique challenges that extend far beyond the academic realm. The isolation of research work is amplified when you're thousands of miles away from your support system, and the pressure to publish and perform is constant.
@@ -26,7 +26,7 @@ Yet, the international student community in my department has become my chosen f
     },
     {
         id: 5,
-        name: "Duy",
+        name: "Duy 🇻🇳",
         image: localDuy,
         title: "2201 Days",
         description: `Navigating professional networking as an international student adds another layer of complexity to an already challenging graduate experience. Career fairs and networking events can feel intimidating when you're constantly aware of visa restrictions and sponsorship requirements.
