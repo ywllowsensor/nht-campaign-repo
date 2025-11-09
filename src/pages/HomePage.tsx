@@ -1,6 +1,7 @@
 import { HeroVideoDialogDemoTopInBottomOut } from "@/components/herovideodialogdemo"
 import { Landing } from "@/components/landing"
 import { NavBar } from "@/components/navbar"
+import { StoriesIntro } from "@/components/stories-intro"
 import { Stories } from "@/components/stories"
 import { Stories45 } from "@/components/stories45"
 import { Burden } from "@/components/burden"
@@ -16,6 +17,9 @@ export function HomePage() {
 
             {/* landing page */}
             <Landing />
+
+            {/* stories introduction with animated questions */}
+            <StoriesIntro />
 
             {/* stories section */}
             <Stories />

@@ -18,26 +18,18 @@ const personsData = [
 
 Time zone differences mean that when I need emotional support the most, my family and friends back home are often asleep. Video calls can only do so much, and there are moments when I desperately miss the comfort of physical presence and familiar surroundings.
 
-Financial constraints are particularly challenging at the PhD level. While I have a stipend, it barely covers living expenses in an expensive city. Watching my peers back home establish their careers and financial independence while I'm still a student can be disheartening.
-
-The imposter syndrome hits differently as an international student. I constantly question whether I belong in this academic space, whether my research is valuable enough, and whether I'm living up to the sacrifices my family made to support my education.
-
-Yet, the international student community in my department has become my chosen family. We celebrate each other's small victories, support each other through setbacks, and remind each other why we started this journey. These connections make the struggle worthwhile.`
+Financial constraints are particularly challenging at the PhD level. While I have a stipend, it barely covers living expenses in an expensive city. Watching my peers back home establish their careers and financial independence while I'm still a student can be disheartening.`
     },
     {
         id: 5,
         name: "Duy 🇻🇳",
         image: localDuy,
         title: "2201 Days",
-        description: `Navigating professional networking as an international student adds another layer of complexity to an already challenging graduate experience. Career fairs and networking events can feel intimidating when you're constantly aware of visa restrictions and sponsorship requirements.
+        description: `When I first came here, I was quite young, so a lot of things about Singapore felt unfamiliar. There were some local norms and ways of speaking that I did not really understand at first, and that made me feel like a bit of an outsider. It took time to adjust, but slowly I started to understand how things work here.
 
-The job search process is exhausting. Every application comes with the anxiety of whether companies will be willing to sponsor a work visa. Rejections feel more personal when you know it's not just about your qualifications, but also about your international status.
+One of the biggest challenges for me is managing money. Living here can be quite expensive, and sometimes it is hard to balance between saving and still wanting to go out or enjoy things with friends. I have learnt to be more careful with spending, but it is definitely something I still think about a lot.
 
-Mental health support is crucial but often difficult to access. Cultural differences in how mental health is perceived and discussed made it hard for me to initially seek help. When I finally did, finding a counselor who understood both my academic pressures and cultural background took time.
-
-Building a professional network while managing cultural differences requires extra effort. I've learned to be more assertive in introducing myself, following up with contacts, and advocating for my skills - behaviors that felt uncomfortable at first but are essential for career success here.
-
-Despite these challenges, I've developed resilience and adaptability that will serve me well throughout my career. The experience of navigating two different cultural and professional landscapes has given me unique perspectives and skills that I wouldn't trade for anything.`
+Over time, I have built friendships that make Singapore feel more like home. I have met both international and local students who are really open and friendly, and they have helped me feel included. Having that mix of friends makes it easier to see myself as part of the community here.`
     }
 ];
 

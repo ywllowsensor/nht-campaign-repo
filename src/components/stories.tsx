@@ -15,13 +15,11 @@ const personsData = [
         name: "Selwyn 🇮🇩",
         image: localSelwyn,
         title: "461 Days",
-        description: `Moving to a new country for studies was both exhilarating and terrifying. The first few weeks were a whirlwind of emotions - excitement about new opportunities mixed with homesickness and culture shock. Simple tasks like ordering food or navigating public transport became daily challenges that tested my confidence.
+        description: `At first, it was a bit hard to blend in because the culture here is pretty different from what I am used to. But I have got really great suitemates, they are all super nice and welcoming, which made things so much easier. After a while, I started to pick up on the little things, especially the accent. Some of my friends back home even teased me, saying that I have started to sound Singaporean.
 
-Language barriers made everything more difficult. Even though I studied English for years, understanding local accents and slang was completely different from textbook learning. I found myself nodding along to conversations I didn't fully understand, too embarrassed to ask people to repeat themselves.
+Honestly, the biggest challenge for me is the working culture here. Singapore's pace is just  really intense. Everyone is super driven, and sometimes I feel like I do not have quite the same mindset. It is not a bad thing, just a different rhythm that I am still learning to keep up with.
 
-The academic system was also very different from what I was used to. The emphasis on independent learning and critical thinking was refreshing but overwhelming. I had to unlearn passive learning habits and become more vocal in class discussions, which went against everything I'd been taught about respecting authority and not standing out.
-
-Despite these challenges, I slowly found my community. International student groups became my support system, where we could share our struggles and celebrate small victories together. I learned that everyone was going through similar experiences, and that made me feel less alone in this journey.`
+Even with the differences, I have managed to find my place here. Both local and international friends make it feel like a small home away from home. I think it is less about fitting in perfectly and more about finding people who make you feel like you belong.`
     },
     {
         id: 2,
@@ -30,6 +28,8 @@ Despite these challenges, I slowly found my community. International student gro
         title: "97 Days",
         description: `The pressure to succeed academically while managing financial stress is constant. As an international student, I pay significantly higher tuition fees and can't work off-campus, which limits my income opportunities. Every expense needs to be carefully calculated.
 
+Beyond finances, there's the invisible burden of representing my entire country and culture. People often make assumptions or ask me to speak for all people from my background, as if I'm a cultural ambassador rather than an individual student. This weight of representation is exhausting.
+
 Beyond finances, there's the invisible burden of representing my entire country and culture. People often make assumptions or ask me to speak for all people from my background, as if I'm a cultural ambassador rather than an individual student. This weight of representation is exhausting.`
     },
     {
@@ -37,15 +37,11 @@ Beyond finances, there's the invisible burden of representing my entire country 
         name: "Zhi Hsuen 🇲🇾",
         image: localZhihsuen,
         title: "456 Days",
-        description: `After three years here, I've found my rhythm, but the question of belonging still lingers. I'm no longer quite the same person I was when I left home, yet I don't fully belong here either. This sense of being between two worlds is both liberating and isolating.
+        description: `It was not too difficult for me since I am from Malaysia, and our cultures are quite similar. But there are still some differences, Singapore feels a bit more uptight and fast-paced compared to back home. It took some getting used to, especially the rhythm of life here.
 
-I've learned to embrace my hybrid identity - taking the best from both cultures and creating something uniquely mine. My friend group is wonderfully diverse, and we've built our own little international community where everyone's background is celebrated.
+The hardest part is being away from my family. It usually hits me during the school semester, when everyone else still has their families here while mine are back home. There are days when it gets a little lonely, but I try to keep myself busy and surround myself with good friends.
 
-The friendships I've made here are deep and meaningful, forged through shared experiences of navigating life in a foreign land. We understand each other's struggles without needing to explain them. These connections have become my anchor.
-
-Looking back, I'm grateful for this journey. The challenges have shaped me into a more resilient, adaptable, and empathetic person. I've learned that home isn't just a place - it's the people you connect with and the sense of belonging you create wherever you are.
-
-As graduation approaches, I face new questions about where I belong and where my future lies. But I've learned that it's okay not to have all the answers. The journey of finding belonging is ongoing, and that's perfectly fine.`
+Friends definitely make a big difference. Building my own community here through school activities and clubs really helped me settle in. It is nice to have people around who share the same experiences, it makes Singapore start to feel a bit like home.`
     }
 ];
 
@@ -180,10 +176,10 @@ export function Stories() {
                             <h2 className="text-5xl font-anton text-primary mb-4">
                                 {personsData[0].name}
                             </h2>
-                            <h3 className="text-2xl font-radio font-semibold text-(--text) mb-8">
+                            <h3 className="text-2xl font-radio font-semibold text-primary mb-8">
                                 {personsData[0].title}
                             </h3>
-                            <div className="text-lg font-radio text-(--text) leading-relaxed space-y-6">
+                            <div className="text-lg font-radio text-(--text) space-y-6">
                                 {personsData[0].description.split('\n\n').map((paragraph, index) => (
                                     <p key={index}>{paragraph}</p>
                                 ))}
@@ -195,10 +191,10 @@ export function Stories() {
                             <h2 className="text-5xl font-anton text-primary mb-4">
                                 {personsData[1].name}
                             </h2>
-                            <h3 className="text-2xl font-radio font-semibold text-(--text) mb-8">
+                            <h3 className="text-2xl font-radio font-semibold text-primary mb-8">
                                 {personsData[1].title}
                             </h3>
-                            <div className="text-lg font-radio text-(--text) leading-relaxed space-y-6">
+                            <div className="text-lg font-radio text-(--text) space-y-6">
                                 {personsData[1].description.split('\n\n').map((paragraph, index) => (
                                     <p key={index}>{paragraph}</p>
                                 ))}
@@ -210,10 +206,10 @@ export function Stories() {
                             <h2 className="text-5xl font-anton text-primary mb-4">
                                 {personsData[2].name}
                             </h2>
-                            <h3 className="text-2xl font-radio font-semibold text-(--text) mb-8">
+                            <h3 className="text-2xl font-radio font-semibold text-primary mb-8">
                                 {personsData[2].title}
                             </h3>
-                            <div className="text-lg font-radio text-(--text) leading-relaxed space-y-6">
+                            <div className="text-lg font-radio text-(--text) space-y-6">
                                 {personsData[2].description.split('\n\n').map((paragraph, index) => (
                                     <p key={index}>{paragraph}</p>
                                 ))}
