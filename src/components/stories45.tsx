@@ -99,7 +99,7 @@ export function Stories45() {
                             <h2 className="text-5xl font-anton text-primary mb-4">
                                 {personsData[0].name}
                             </h2>
-                            <h3 className="text-2xl font-radio font-semibold text-(--text) mb-8">
+                            <h3 className="text-2xl font-radio font-semibold text-primary mb-8">
                                 {personsData[0].title}
                             </h3>
                             <div className="text-lg font-radio text-(--text) leading-relaxed space-y-6">
@@ -114,7 +114,7 @@ export function Stories45() {
                             <h2 className="text-5xl font-anton text-primary mb-4">
                                 {personsData[1].name}
                             </h2>
-                            <h3 className="text-2xl font-radio font-semibold text-(--text) mb-8">
+                            <h3 className="text-2xl font-radio font-semibold text-primary mb-8">
                                 {personsData[1].title}
                             </h3>
                             <div className="text-lg font-radio text-(--text) leading-relaxed space-y-6">
