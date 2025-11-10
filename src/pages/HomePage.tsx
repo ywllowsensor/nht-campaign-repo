@@ -1,3 +1,5 @@
+import { useEffect } from "react"
+import { useLocation } from "react-router-dom"
 import { HeroVideoDialogDemoTopInBottomOut } from "@/components/herovideodialogdemo"
 import { Landing } from "@/components/landing"
 import { NavBar } from "@/components/navbar"
@@ -11,6 +13,23 @@ import { CallToAction } from "@/components/call-to-action"
 
 
 export function HomePage() {
+    const location = useLocation();
+
+    useEffect(() => {
+        // Check if we need to scroll to a specific section
+        if (location.state?.scrollTo === 'game-intro') {
+            // Small delay to ensure component is rendered
+            setTimeout(() => {
+                const gameIntroElement = document.getElementById('game-intro-section');
+                if (gameIntroElement) {
+                    gameIntroElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 100);
+            // Clear the state to prevent auto-scroll on subsequent renders
+            window.history.replaceState({}, document.title);
+        }
+    }, [location]);
+
     return (
         <div className='flex flex-col w-full justify-around items-center bg-background'>
             <NavBar />

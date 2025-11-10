@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 // Import scenario images
 import scenario1Desc from '../assets/scenarios/1/scenario1-desc.jpg';
@@ -138,6 +139,7 @@ export function DecisionGame() {
     happiness: 50
   };
 
+  const navigate = useNavigate();
   const [xp, setXP] = useState<XPBars>(initialXP);
   const [currentScenarioIndex, setCurrentScenarioIndex] = useState(0);
   const [gameStage, setGameStage] = useState<GameStage>('title');
@@ -227,6 +229,11 @@ export function DecisionGame() {
     setCurrentScenarioIndex(0);
     setGameStage('title');
     setSelectedChoice(null);
+  };
+
+  // Navigate back to home page game section
+  const goToHomePage = () => {
+    navigate('/', { state: { scrollTo: 'game-intro' } });
   };
 
   // Helper to handle stage transitions with loading
@@ -563,16 +570,25 @@ export function DecisionGame() {
             </p>
           </div>
 
-          <button
-            onClick={resetGame}
-            className="relative z-10 group px-12 py-5 text-2xl md:text-3xl font-anton font-bold text-white bg-linear-to-r from-green-400 via-blue-500 to-purple-600 border-4 border-black shadow-[6px_6px_0_0_rgba(0,0,0,1)] transform transition-all duration-200 hover:scale-105 hover:shadow-[8px_8px_0_0_rgba(0,0,0,1)]"
-          >
-            RESTART
-            <div className="absolute -top-3 -right-3 w-10 h-10 bg-yellow-300 border-2 border-black rounded-full animate-spin" />
-            <div className="absolute -top-3 -right-3 w-10 h-10 bg-yellow-300 border-2 border-black rounded-full flex items-center justify-center text-black text-xl">
-              ↻
-            </div>
-          </button>
+          <div className="relative z-10 flex flex-col sm:flex-row gap-4 items-center justify-center">
+            <button
+              onClick={goToHomePage}
+              className="relative group px-8 py-4 text-xl md:text-2xl font-anton font-bold text-black bg-yellow-300 border-4 border-black shadow-[6px_6px_0_0_rgba(0,0,0,1)] transform transition-all duration-200 hover:scale-105 hover:shadow-[8px_8px_0_0_rgba(0,0,0,1)]"
+            >
+              ← BACK TO HOME
+            </button>
+
+            <button
+              onClick={resetGame}
+              className="relative z-10 group px-12 py-5 text-2xl md:text-3xl font-anton font-bold text-white bg-linear-to-r from-green-400 via-blue-500 to-purple-600 border-4 border-black shadow-[6px_6px_0_0_rgba(0,0,0,1)] transform transition-all duration-200 hover:scale-105 hover:shadow-[8px_8px_0_0_rgba(0,0,0,1)]"
+            >
+              RESTART
+              <div className="absolute -top-3 -right-3 w-10 h-10 bg-yellow-300 border-2 border-black rounded-full animate-spin" />
+              <div className="absolute -top-3 -right-3 w-10 h-10 bg-yellow-300 border-2 border-black rounded-full flex items-center justify-center text-black text-xl">
+                ↻
+              </div>
+            </button>
+          </div>
         </div>
       )}
     </div>

@@ -150,7 +150,7 @@ export function GameIntro() {
   }, []);
 
   return (
-    <div ref={containerRef} className="relative w-full z-20" style={{ height: '180vh', marginTop: '-100vh' }}>
+    <div ref={containerRef} id="game-intro-section" className="relative w-full z-20" style={{ height: '180vh', marginTop: '-100vh' }}>
       {/* Sticky container that slides up */}
       <div 
         ref={stickyRef}
