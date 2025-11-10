@@ -338,7 +338,7 @@ export function DecisionGame() {
           {/* Main content */}
           <div className="relative w-full h-full flex items-center justify-between gap-8 pt-8 px-8 md:px-16">
             {/* Image on left - rotated slightly */}
-            <div className="transform -rotate-2 shadow-[12px_12px_0_0_rgba(255,255,255,0.3)] shrink-0">
+            <div className="transform -rotate-2 shadow-[12px_12px_0_0_rgba(255,255,255,0.3)] shrink-0 max-w-3xl">
               <img
                 src={currentScenario.descImage}
                 alt="Scenario description"
@@ -347,7 +347,7 @@ export function DecisionGame() {
             </div>
 
             {/* Text space on right */}
-            <div className="group flex-1 max-w-2xl bg-white/95 backdrop-blur-sm rounded-2xl border-4 border-black shadow-[8px_8px_0_0_rgba(0,0,0,0.8)] p-8 transform rotate-1 transition-all duration-300 cursor-pointer hover:scale-105">
+            <div className="group flex-1 max-w-2xl max-h-[80vh] bg-white/95 backdrop-blur-sm rounded-2xl border-4 border-black shadow-[8px_8px_0_0_rgba(0,0,0,0.8)] p-8 transform rotate-1 transition-all duration-300 cursor-pointer hover:scale-105 overflow-y-auto">
               <h2 className="text-3xl md:text-4xl font-anton font-bold text-black mb-4 transform -rotate-1">
                 THE SITUATION
               </h2>
@@ -441,7 +441,7 @@ export function DecisionGame() {
           {/* Main content */}
           <div className="relative w-full h-full flex items-center justify-between gap-8 pt-8 px-8 md:px-16">
             {/* Image on left - rotated slightly */}
-            <div className="transform rotate-1 shadow-[12px_12px_0_0_rgba(255,255,255,0.3)] shrink-0">
+            <div className="transform rotate-1 shadow-[12px_12px_0_0_rgba(255,255,255,0.3)] shrink-0 max-w-3xl">
               <img
                 src={selectedChoice.resultImage}
                 alt="Result"
@@ -450,7 +450,7 @@ export function DecisionGame() {
             </div>
 
             {/* Text space on right */}
-            <div className="group flex-1 max-w-2xl bg-white/95 backdrop-blur-sm rounded-2xl border-4 border-black shadow-[8px_8px_0_0_rgba(0,0,0,0.8)] p-8 transform -rotate-1 transition-all duration-300 cursor-pointer hover:scale-105">
+            <div className="group flex-1 max-w-2xl max-h-[80vh] bg-white/95 backdrop-blur-sm rounded-2xl border-4 border-black shadow-[8px_8px_0_0_rgba(0,0,0,0.8)] p-8 transform -rotate-1 transition-all duration-300 cursor-pointer hover:scale-105 overflow-y-auto">
               <h2 className="text-3xl md:text-4xl font-anton font-bold text-black mb-4 transform rotate-1">
                 CONSEQUENCE
               </h2>
