@@ -14,11 +14,11 @@ const personsData = [
         name: "Aashna 🇮🇳",
         image: localAashna,
         title: "95 Days",
-        description: `The journey of pursuing a PhD as an international student comes with unique challenges that extend far beyond the academic realm. The isolation of research work is amplified when you're thousands of miles away from your support system, and the pressure to publish and perform is constant.
+        description: `Coming here is a really huge change. Singaporean culture is not like back home at all. Inside the NUSC community, I have got a lot of good friends and a neighbourhood that is willing to help out. But outside of school, it feels like locals are not very patient, or they do not have the time to stop and help. And sometimes, in my classes, it can be tough because everybody else is a local, and they have shared jokes and experiences that I cannot really relate to.
 
-Time zone differences mean that when I need emotional support the most, my family and friends back home are often asleep. Video calls can only do so much, and there are moments when I desperately miss the comfort of physical presence and familiar surroundings.
+Money. Everything is so expensive here. And I have to work really hard to budget everything, because it can really add up. Also, I am not even 18 yet, and I had to do so much paperwork by myself, for my phone, my student pass, everything. And a lot of it does not make sense at all, so it was really tough at first.
 
-Financial constraints are particularly challenging at the PhD level. While I have a stipend, it barely covers living expenses in an expensive city. Watching my peers back home establish their careers and financial independence while I'm still a student can be disheartening.`
+No, I am still relatively new here. And I am still trying to get used to these new surroundings. Sometimes I get overwhelmed with homesickness and it is tough.`
     },
     {
         id: 5,

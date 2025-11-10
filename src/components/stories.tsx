@@ -26,11 +26,11 @@ Even with the differences, I have managed to find my place here. Both local and 
         name: "Shayona 🇮🇳",
         image: localShayona,
         title: "97 Days",
-        description: `The pressure to succeed academically while managing financial stress is constant. As an international student, I pay significantly higher tuition fees and can't work off-campus, which limits my income opportunities. Every expense needs to be carefully calculated.
+        description: `I am a third culture kid, so I am pretty used to living in a new country. I chose Singapore because it offered a lot of benefits that not only pertain to academic opportunities but in terms of security. Integrating into the NUSC community has been really wonderful, because people are always willing to help out, and I have got a few local friends who have been teaching me a lot about Singlish, which I now know is very different from a regular Malaysian accent. 
 
-Beyond finances, there's the invisible burden of representing my entire country and culture. People often make assumptions or ask me to speak for all people from my background, as if I'm a cultural ambassador rather than an individual student. This weight of representation is exhausting.
+The biggest challenge for me is interacting with people outside of the NUSC community. Shopkeepers can be quite short with me, especially in comparison to how they treat locals. So when I am going out by myself, it can be really daunting to ask for directions or help, because it feels like I am asking them for a huge favour?
 
-Beyond finances, there's the invisible burden of representing my entire country and culture. People often make assumptions or ask me to speak for all people from my background, as if I'm a cultural ambassador rather than an individual student. This weight of representation is exhausting.`
+I have only been here for a semester, so the answer is gonna be no. I still feel too new to the country, and I still feel very homesick. I call my parents every night, and I try my best to find a way to fly home whenever I can.`
     },
     {
         id: 3,
