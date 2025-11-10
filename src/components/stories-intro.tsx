@@ -55,7 +55,7 @@ export function StoriesIntro() {
                 question2Ref.current,
                 { y: 100, opacity: 0 },
                 {
-                    y: 0,
+                    y: -50,
                     opacity: 1,
                     ease: 'none',
                     scrollTrigger: {
@@ -72,7 +72,7 @@ export function StoriesIntro() {
                 question3Ref.current,
                 { y: 100, opacity: 0 },
                 {
-                    y: 100,
+                    y: 0,
                     opacity: 1,
                     ease: 'none',
                     scrollTrigger: {
@@ -84,28 +84,28 @@ export function StoriesIntro() {
                 }
             );
 
-            // Questions exit up together - smoother and more gradual
-            gsap.to(
-                [question1Ref.current, question2Ref.current, question3Ref.current],
-                {
-                    y: -300,
-                    opacity: 0,
-                    ease: 'power2.in',
-                    scrollTrigger: {
-                        trigger: containerRef.current,
-                        start: 'top -120%',
-                        end: 'top -180%',
-                        scrub: 1
-                    }
-                }
-            );
+            // // Questions exit up together - smoother and more gradual
+            // gsap.to(
+            //     [question1Ref.current, question2Ref.current, question3Ref.current],
+            //     {
+            //         y: -100,
+            //         opacity: 0,
+            //         ease: 'power2.in',
+            //         scrollTrigger: {
+            //             trigger: containerRef.current,
+            //             start: 'top -130%',
+            //             end: 'top -180%',
+            //             scrub: 1
+            //         }
+            //     }
+            // );
 
             // Scroll text enters
             gsap.fromTo(
                 scrollTextRef.current,
-                { y: 100, opacity: 0 },
+                { y: 200, opacity: 0 },
                 {
-                    y: 0,
+                    y: 80,
                     opacity: 1,
                     ease: 'power2.out',
                     scrollTrigger: {
@@ -132,7 +132,7 @@ export function StoriesIntro() {
                 {/* Header */}
                 <h1
                     ref={headerRef}
-                    className="absolute text-6xl md:text-7xl lg:text-8xl font-anton font-bold text-primary text-center px-8"
+                    className="absolute text-6xl md:text-7xl lg:text-8xl text-shadow-black/20 text-shadow-lg font-anton font-bold text-primary text-center px-8"
                 >
                     Stories Of Belonging
                 </h1>
@@ -140,7 +140,7 @@ export function StoriesIntro() {
                 {/* Question 1 */}
                 <p
                     ref={question1Ref}
-                    className="absolute italic text-xl md:text-2xl lg:text-2xl font-anton text-(--text) text-center px-8 max-w-4xl"
+                    className="absolute italic text-xl md:text-2xl lg:text-2xl font-anton text-shadow-black/20 text-shadow-md text-(--text) text-center px-8 max-w-4xl"
                 >
                     How easy is it to integrate into local culture?
                 </p>
@@ -148,7 +148,7 @@ export function StoriesIntro() {
                 {/* Question 2 */}
                 <p
                     ref={question2Ref}
-                    className="absolute italic text-xl md:text-2xl lg:text-2xl font-anton text-(--text) text-center px-8 max-w-4xl"
+                    className="absolute italic text-xl md:text-2xl lg:text-2xl font-anton text-shadow-black/20 text-shadow-md text-(--text) text-center px-8 max-w-4xl"
                 >
                     What are some challenges that you face?
                 </p>
@@ -156,7 +156,7 @@ export function StoriesIntro() {
                 {/* Question 3 */}
                 <p
                     ref={question3Ref}
-                    className="absolute italic text-xl md:text-2xl lg:text-2xl font-anton text-(--text) text-center px-8 max-w-4xl"
+                    className="absolute italic text-xl md:text-2xl lg:text-2xl font-anton text-shadow-black/20 text-shadow-md text-(--text) text-center px-8 max-w-4xl"
                 >
                     Are you still able to find a home or community in Singapore?
                 </p>
@@ -164,7 +164,7 @@ export function StoriesIntro() {
                 {/* Scroll text */}
                 <p
                     ref={scrollTextRef}
-                    className="absolute text-xl md:text-2xl font-anton text-primary text-center px-8 max-w-xl"
+                    className="absolute text-xl md:text-3xl font-anton text-primary text-center text-shadow-black/20 text-shadow-md px-8 max-w-3xl"
                 >
                     Keep scrolling to discover what our interviewees had to say about these questions
                 </p>

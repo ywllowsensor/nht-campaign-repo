@@ -34,7 +34,7 @@ export function GameIntro() {
           scrollTrigger: {
             trigger: containerRef.current,
             start: 'top bottom',
-            end: 'top top',
+          end: 'top top',
             scrub: 1
           }
         }
@@ -48,7 +48,7 @@ export function GameIntro() {
             opacity: 0
           },
           {
-            opacity: 0.3,
+            opacity: 1,
             scrollTrigger: {
               trigger: containerRef.current,
               start: 'top top',

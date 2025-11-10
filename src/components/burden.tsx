@@ -138,7 +138,7 @@ export function Burden() {
                     className="relative z-10 text-5xl md:text-7xl lg:text-8xl font-anton font-bold text-primary text-center px-8 leading-tight"
                     style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.7)' }}
                 >
-                    The burdens you don't see
+                    Invisible burdens
                 </h2>
             </div>
 
