@@ -114,7 +114,7 @@ export function CallToAction() {
         {
             emoji: '🤝',
             title: 'Extend an Invitation',
-            description: 'Include them in social gatherings, study groups, or community events. Help them feel at home here.'
+            description: 'Invite them to social gatherings, study groups, or community events. Help them feel at home here.'
         },
         {
             emoji: '👂',
