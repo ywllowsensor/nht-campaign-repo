@@ -4,7 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Link } from 'react-router-dom';
 
 // Replace with your actual image path
-import gameImg from "../assets/images/cover-page-img.png";
+import gameImg from "../assets/images/game-intro-bg.png";
 
 gsap.registerPlugin(ScrollTrigger);
 

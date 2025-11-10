@@ -164,7 +164,7 @@ export function StoriesIntro() {
                 {/* Scroll text */}
                 <p
                     ref={scrollTextRef}
-                    className="absolute text-xl md:text-2xl font-anton text-(--text) text-center px-8 max-w-xl"
+                    className="absolute text-xl md:text-2xl font-anton text-primary text-center px-8 max-w-xl"
                 >
                     Keep scrolling to discover what our interviewees had to say about these questions
                 </p>

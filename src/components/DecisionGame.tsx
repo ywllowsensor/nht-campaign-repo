@@ -6,6 +6,11 @@ import scenario1Choice from '../assets/scenarios/1/scenario1-choice.jpg';
 import scenario1StayHome from '../assets/scenarios/1/scenario1-choice-stayhome.jpg';
 import scenario1Supper from '../assets/scenarios/1/scenario1-choice-supper.jpg';
 
+import scenario2Desc from '../assets/scenarios/2/scenario2-desc.png';
+import scenario2Choice from '../assets/scenarios/2/scenario2-choice.png';
+import scenario2Decorate from '../assets/scenarios/2/scenario2-choice-decorateroom.png';
+import scenario2SaveMoney from '../assets/scenarios/2/scenario2-choice-savemoney.png';
+
 import scenario3Desc from '../assets/scenarios/3/scenario3-desc.jpg';
 import scenario3Choice from '../assets/scenarios/3/scenario3-choice.jpg';
 import scenario3StayHome from '../assets/scenarios/3/scenario3-choice-stayhome.jpg';
@@ -73,6 +78,29 @@ const scenariosConfig: ScenarioData[] = [
     }
   },
   {
+    id: 2,
+    descImage: scenario2Desc,
+    choiceImage: scenario2Choice,
+    descriptionText: [
+      "After cleaning up your room, you felt that something was amiss. Even though everything was in place, your room still ellicits a sense of emptiness.",
+      "Ahah! Due to space constraints, you were not able to bring with you your personal items from back home. That's why your room feels incomplete. But how should you fill that gap..."
+    ],
+    choice1: {
+      name: 'choice1',
+      buttonText: 'DECORATE ROOM',
+      effect: { money: -15, socialLife: 0, academics: 0, happiness: 20 },
+      resultImage: scenario2Decorate,
+      resultText: ["You have arrived back in your room with 2 reusable bags full of items from Clementi Mall.", "'That poster should definitely go up there, this little plant can sit by window, and let me put this frog down here...'", "Half a day later, your room is finally decorated, embellished with items that remind you of home."]
+    },
+    choice2: {
+      name: 'choice2',
+      buttonText: 'SAVE MONEY',
+      effect: { money: 20, socialLife: 0, academics: 0, happiness: -20 },
+      resultImage: scenario2SaveMoney,
+      resultText: ["'The emptiness of my room gets to me at least my wallet isn't empty,' you think to yourself.", "Can you put a price on the feeling of home? How do you make sense of the spacious spaces around you?"]
+    }
+  },
+  {
     id: 3,
     descImage: scenario3Desc,
     choiceImage: scenario3Choice,
@@ -91,7 +119,7 @@ const scenariosConfig: ScenarioData[] = [
     },
     choice2: {
       name: 'choice2',
-      buttonText: 'REJECT THE INVITE AND STUDY',
+      buttonText: 'REJECT THE INVITE',
       effect: { money: 5, socialLife: -10, academics: 30, happiness: -10 },
       resultImage: scenario3StayHome,
       resultText: [
@@ -99,31 +127,6 @@ const scenariosConfig: ScenarioData[] = [
         "Because of your academic effort, you performed well for your quiz, only at the expense of your relationship with your hallmates."]
     }
   }
-
-  //   {
-  //     id: 2,
-  //     descImage: scenario2Desc,
-  //     choiceImage: scenario2Choice,
-  //     descriptionText: [
-  //       "After cleaning up your room, you felt that something was amiss. Even though everything was in place, your room still ellicits a sense of emptiness.",
-  //       "Ahah! Due to space constraints, you were not able to bring with you your personal items from back home. That's why your room feels incomplete. But how should you fill that gap..."
-  //     ],
-  //     choice1: { 
-  //       name: 'choice1',
-  //       buttonText: 'BUY ROOM DECORATIONS',
-  //       effect: { money: -15, socialLife: 0, academics: 0, happiness: 20 }, 
-  //       resultImage: scenario2Result1,
-  //       resultText: ["You have arrived back in your room with 2 reusable bags full of items from Clementi Mall.", "'That poster should definitely go up there, this little plant can sit by window, and let me put this frog down here...'", "Half a day later, your room is finally decorated, embellished with items that remind you of home."]
-  //     },
-  //     choice2: { 
-  //       name: 'choice2',
-  //       buttonText: 'SAVE MONEY',
-  //       effect: { money: 20, socialLife: 0, academics: 0, happiness: -20 }, 
-  //       resultImage: scenario2Result2,
-  //       resultText: ["'The emptiness of my room gets to me at least my wallet isn't empty,' you think to yourself.", "Can you put a price on the feeling of home? How do you make sense of the spacious spaces around you?"]
-  //     }
-  //   },
-
 ];
 
 export function DecisionGame() {
