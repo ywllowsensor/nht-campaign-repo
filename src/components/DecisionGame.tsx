@@ -50,6 +50,29 @@ interface ScenarioData {
 const scenariosConfig: ScenarioData[] = [
   {
     id: 1,
+    descImage: scenario2Desc,
+    choiceImage: scenario2Choice,
+    descriptionText: [
+      "After cleaning up your room, you felt that something was amiss. Even though everything was in place, your room still ellicits a sense of emptiness.",
+      "Ahah! Due to space constraints, you were not able to bring with you your personal items from back home. That's why your room feels incomplete. But how should you fill that gap..."
+    ],
+    choice1: {
+      name: 'choice1',
+      buttonText: 'DECORATE ROOM',
+      effect: { money: -15, socialLife: 0, academics: 0, happiness: 20 },
+      resultImage: scenario2Decorate,
+      resultText: ["You have arrived back in your room with 2 reusable bags full of items from Clementi Mall.", "'That poster should definitely go up there, this little plant can sit by window, and let me put this frog down here...'", "Half a day later, your room is finally decorated, embellished with items that remind you of home."]
+    },
+    choice2: {
+      name: 'choice2',
+      buttonText: 'SAVE MONEY',
+      effect: { money: 20, socialLife: 0, academics: 0, happiness: -20 },
+      resultImage: scenario2SaveMoney,
+      resultText: ["'The emptiness of my room gets to me at least my wallet isn't empty,' you think to yourself.", "Can you put a price on the feeling of home? How do you make sense of the spacious spaces around you?"]
+    }
+  },
+  {
+    id: 2,
     descImage: scenario1Desc,
     choiceImage: scenario1Choice,
     descriptionText: [
@@ -78,29 +101,6 @@ const scenariosConfig: ScenarioData[] = [
     }
   },
   {
-    id: 2,
-    descImage: scenario2Desc,
-    choiceImage: scenario2Choice,
-    descriptionText: [
-      "After cleaning up your room, you felt that something was amiss. Even though everything was in place, your room still ellicits a sense of emptiness.",
-      "Ahah! Due to space constraints, you were not able to bring with you your personal items from back home. That's why your room feels incomplete. But how should you fill that gap..."
-    ],
-    choice1: {
-      name: 'choice1',
-      buttonText: 'DECORATE ROOM',
-      effect: { money: -15, socialLife: 0, academics: 0, happiness: 20 },
-      resultImage: scenario2Decorate,
-      resultText: ["You have arrived back in your room with 2 reusable bags full of items from Clementi Mall.", "'That poster should definitely go up there, this little plant can sit by window, and let me put this frog down here...'", "Half a day later, your room is finally decorated, embellished with items that remind you of home."]
-    },
-    choice2: {
-      name: 'choice2',
-      buttonText: 'SAVE MONEY',
-      effect: { money: 20, socialLife: 0, academics: 0, happiness: -20 },
-      resultImage: scenario2SaveMoney,
-      resultText: ["'The emptiness of my room gets to me at least my wallet isn't empty,' you think to yourself.", "Can you put a price on the feeling of home? How do you make sense of the spacious spaces around you?"]
-    }
-  },
-  {
     id: 3,
     descImage: scenario3Desc,
     choiceImage: scenario3Choice,
@@ -111,7 +111,7 @@ const scenariosConfig: ScenarioData[] = [
     choice1: {
       name: 'choice1',
       buttonText: 'JOIN CYCLING',
-      effect: { money: -5, socialLife: 15, academics: -15, happiness: 10 },
+      effect: { money: -5, socialLife: 25, academics: -15, happiness: 10 },
       resultImage: scenario3Cycling,
       resultText: [
         "East Coast Park was a blast! You took the opportunity to talk to more people and make new friends. Surprisingly, you found someone who loved TV remotes as much as you did!",
@@ -155,7 +155,7 @@ export function DecisionGame() {
         resolve();
         return;
       }
-      
+
       const img = new Image();
       img.onload = () => {
         setImagesLoaded(prev => new Set([...prev, src]));
@@ -181,7 +181,7 @@ export function DecisionGame() {
     setIsLoading(true);
     setSelectedChoice(choice);
     applyEffect(choice.effect);
-    
+
     try {
       await preloadImage(choice.resultImage);
       setGameStage('result');
@@ -196,7 +196,7 @@ export function DecisionGame() {
   // Move to next scenario
   const goToNextScenario = async () => {
     setIsLoading(true);
-    
+
     try {
       if (isLastScenario) {
         setGameStage('finalStats');
@@ -232,7 +232,7 @@ export function DecisionGame() {
   // Helper to handle stage transitions with loading
   const handleStageTransition = async (newStage: GameStage) => {
     setIsLoading(true);
-    
+
     try {
       if (newStage === 'desc' && currentScenario) {
         await preloadImage(currentScenario.descImage);
