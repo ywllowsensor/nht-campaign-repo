@@ -142,9 +142,29 @@ export function DecisionGame() {
   const [currentScenarioIndex, setCurrentScenarioIndex] = useState(0);
   const [gameStage, setGameStage] = useState<GameStage>('title');
   const [selectedChoice, setSelectedChoice] = useState<Choice | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [imagesLoaded, setImagesLoaded] = useState<Set<string>>(new Set());
 
   const currentScenario = scenariosConfig[currentScenarioIndex];
   const isLastScenario = currentScenarioIndex === scenariosConfig.length - 1;
+
+  // Preload image helper
+  const preloadImage = (src: string): Promise<void> => {
+    return new Promise((resolve, reject) => {
+      if (imagesLoaded.has(src)) {
+        resolve();
+        return;
+      }
+      
+      const img = new Image();
+      img.onload = () => {
+        setImagesLoaded(prev => new Set([...prev, src]));
+        resolve();
+      };
+      img.onerror = reject;
+      img.src = src;
+    });
+  };
 
   // Helper function to update XP bars
   const applyEffect = (effect: Partial<XPBars>) => {
@@ -157,21 +177,47 @@ export function DecisionGame() {
   };
 
   // Handle choice selection
-  const handleChoice = (choice: Choice) => {
+  const handleChoice = async (choice: Choice) => {
+    setIsLoading(true);
     setSelectedChoice(choice);
     applyEffect(choice.effect);
-    setGameStage('result');
+    
+    try {
+      await preloadImage(choice.resultImage);
+      setGameStage('result');
+    } catch (error) {
+      console.error('Failed to load image:', error);
+      setGameStage('result'); // Show anyway
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   // Move to next scenario
-  const goToNextScenario = () => {
-    if (isLastScenario) {
-      // Game completed - show final stats
-      setGameStage('finalStats');
-    } else {
-      setCurrentScenarioIndex(prev => prev + 1);
-      setGameStage('desc');
-      setSelectedChoice(null);
+  const goToNextScenario = async () => {
+    setIsLoading(true);
+    
+    try {
+      if (isLastScenario) {
+        setGameStage('finalStats');
+      } else {
+        const nextScenario = scenariosConfig[currentScenarioIndex + 1];
+        await preloadImage(nextScenario.descImage);
+        setCurrentScenarioIndex(prev => prev + 1);
+        setGameStage('desc');
+        setSelectedChoice(null);
+      }
+    } catch (error) {
+      console.error('Failed to load image:', error);
+      if (isLastScenario) {
+        setGameStage('finalStats');
+      } else {
+        setCurrentScenarioIndex(prev => prev + 1);
+        setGameStage('desc');
+        setSelectedChoice(null);
+      }
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -183,8 +229,40 @@ export function DecisionGame() {
     setSelectedChoice(null);
   };
 
+  // Helper to handle stage transitions with loading
+  const handleStageTransition = async (newStage: GameStage) => {
+    setIsLoading(true);
+    
+    try {
+      if (newStage === 'desc' && currentScenario) {
+        await preloadImage(currentScenario.descImage);
+      } else if (newStage === 'choice' && currentScenario) {
+        await preloadImage(currentScenario.choiceImage);
+      }
+      setGameStage(newStage);
+    } catch (error) {
+      console.error('Failed to load image:', error);
+      setGameStage(newStage); // Show anyway
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <div className="w-full min-h-screen bg-primary/80 relative">
+      {/* Loading overlay */}
+      {isLoading && (
+        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center backdrop-blur-sm">
+          <div className="relative">
+            {/* Spinning comic-style loader */}
+            <div className="w-24 h-24 border-8 border-yellow-300 border-t-transparent rounded-full animate-spin" />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <span className="text-4xl animate-pulse">⚡</span>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Title Screen */}
       {gameStage === 'title' && (
         <div className="w-full h-screen flex flex-col items-center justify-center p-8 md:p-12 bg-linear-to-br from-purple-600 via-pink-500 to-orange-400 relative overflow-hidden">
@@ -229,9 +307,7 @@ export function DecisionGame() {
           </p>
 
           <button
-            onClick={() => {
-              setGameStage('desc');
-            }}
+            onClick={() => handleStageTransition('desc')}
             className="relative z-10 group px-16 py-6 text-3xl md:text-4xl font-anton font-bold text-black bg-yellow-300 border-4 border-black shadow-[8px_8px_0_0_rgba(0,0,0,1)] transform transition-all duration-200 hover:scale-110 hover:shadow-[12px_12px_0_0_rgba(0,0,0,1)] hover:-translate-y-2 hover:rotate-2"
           >
             START!
@@ -288,7 +364,7 @@ export function DecisionGame() {
 
           {/* Comic-style NEXT arrow button - bottom right */}
           <button
-            onClick={() => setGameStage('choice')}
+            onClick={() => handleStageTransition('choice')}
             className="absolute bottom-8 right-8 w-24 h-24 bg-yellow-300 border-4 border-white rounded-full shadow-[6px_6px_0_0_rgba(255,255,255,0.6)] flex items-center justify-center text-5xl transform transition-all duration-200 hover:scale-110 hover:shadow-[8px_8px_0_0_rgba(255,255,255,0.8)] hover:-translate-y-1 hover:bg-yellow-400"
           >
             →
@@ -438,7 +514,7 @@ export function DecisionGame() {
           </div>
 
           <button
-            onClick={() => setGameStage('conclusion')}
+            onClick={() => handleStageTransition('conclusion')}
             className="relative z-10 px-10 py-4 text-2xl font-anton font-bold text-white bg-linear-to-r from-cyan-500 via-purple-500 to-pink-500 border-4 border-black shadow-[6px_6px_0_0_rgba(0,0,0,1)] transform transition-all duration-200 hover:scale-105 hover:shadow-[8px_8px_0_0_rgba(0,0,0,1)]"
           >
             CONTINUE →
