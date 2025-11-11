@@ -256,7 +256,7 @@ export function DecisionGame() {
   };
 
   return (
-    <div className="w-full min-h-screen bg-primary/80 relative">
+    <div className="w-full min-h-screen bg-black relative">
       {/* Loading overlay */}
       {isLoading && (
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center backdrop-blur-sm">
